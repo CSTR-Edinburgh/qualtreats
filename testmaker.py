@@ -4,7 +4,7 @@ import copy
 from string import Template
 from collections import OrderedDict
 
-json_filename = "random.json"
+json_filename = "template.json"
 audio_html_template = "audio_template.html"
 save_as = "output.qsf"
 
