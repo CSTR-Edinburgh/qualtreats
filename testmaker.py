@@ -1,8 +1,11 @@
+# System imports
 import json
-import config
 import copy
 from string import Template
 from collections import OrderedDict
+
+# local imports
+import config
 
 json_filename = "template.json"
 audio_html_template = "audio_template.html"
@@ -56,6 +59,15 @@ def set_id(obj):
     obj['SurveyID'] = config.survey_id
     return obj
 
+def print_question(filename):
+    with open(filename) as json_file:
+        basis_json = json.load(json_file)
+    elements = basis_json['SurveyElements']
+    # IMPORTANT -- assumes the first question is the seventh 'element'
+    # There is no qsf standard to base this on. You may want to print ALL elements
+    basis_question = elements[7]
+    print(json.dumps(basis_question, indent=4))
+
 
 def main():
     #config.ab_urls = [config.ab_urls[0]]
@@ -95,6 +107,7 @@ def main():
     elements = [blocks, flow] + elements[2:7] + questions + [elements[-1]]
 
     # Add the elements to the full survey
+    # Not strictly necessary as we didn't do deep copies of elements
     out_json = basis_json
     out_json['SurveyElements'] = elements
     #print(json.dumps(out_json, indent=4))
