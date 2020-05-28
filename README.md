@@ -32,6 +32,8 @@ You should add randomisation etc.
 Then download the qsf file by doing 
 Tools -> Import/Export -> Export Survey
 
+### If you like you can send me this survey and ask me to do the following!
+
 Run
 
 ```
