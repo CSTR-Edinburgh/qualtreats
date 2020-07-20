@@ -1,0 +1,437 @@
+{
+    "SurveyEntry": {
+        "SurveyID": "SV_3OeR0A9v8qtGjVr",
+        "SurveyName": "Combined template (+ transcription + abc)",
+        "SurveyDescription": null,
+        "SurveyOwnerID": "UR_bat6mqoiSNjp68l",
+        "SurveyBrandID": "edinburghinformatics",
+        "DivisionID": null,
+        "SurveyLanguage": "EN",
+        "SurveyActiveResponseSet": "RS_eGb1goyHZC4czDn",
+        "SurveyStatus": "Inactive",
+        "SurveyStartDate": "0000-00-00 00:00:00",
+        "SurveyExpirationDate": "0000-00-00 00:00:00",
+        "SurveyCreationDate": "2020-07-16 05:37:23",
+        "CreatorID": "UR_bat6mqoiSNjp68l",
+        "LastModified": "2020-07-16 05:40:01",
+        "LastAccessed": "0000-00-00 00:00:00",
+        "LastActivated": "0000-00-00 00:00:00",
+        "Deleted": null
+    },
+    "SurveyElements": [
+        {
+            "SurveyID": "SV_4TLSPrwNIjymdh3",
+            "Element": "BL",
+            "PrimaryAttribute": "Survey Blocks",
+            "SecondaryAttribute": null,
+            "TertiaryAttribute": null,
+            "Payload": [
+                {
+                    "Type": "Default",
+                    "Description": "Default Question Block",
+                    "ID": "BL_1MNtN4HBD9iSUXX",
+                    "BlockElements": [
+                        {
+                            "Type": "Question",
+                            "QuestionID": "QID1"
+                        },
+                        {
+                            "Type": "Question",
+                            "QuestionID": "QID2"
+                        },
+                        {
+                            "Type": "Question",
+                            "QuestionID": "QID3"
+                        },
+                        {
+                            "Type": "Question",
+                            "QuestionID": "QID4"
+                        },
+                        {
+                            "Type": "Question",
+                            "QuestionID": "QID5"
+                        },
+                        {
+                            "Type": "Question",
+                            "QuestionID": "QID6"
+                        }
+                    ]
+                },
+                {
+                    "Type": "Trash",
+                    "Description": "Trash / Unused Questions",
+                    "ID": "BL_b9JrFiAUwvf53RH"
+                }
+            ]
+        },
+        {
+            "SurveyID": "SV_4TLSPrwNIjymdh3",
+            "Element": "FL",
+            "PrimaryAttribute": "Survey Flow",
+            "SecondaryAttribute": null,
+            "TertiaryAttribute": null,
+            "Payload": {
+                "Flow": [
+                    {
+                        "ID": "BL_1MNtN4HBD9iSUXX",
+                        "Type": "Block",
+                        "FlowID": "FL_2"
+                    }
+                ],
+                "Properties": {
+                    "Count": 6
+                },
+                "FlowID": "FL_1",
+                "Type": "Root"
+            }
+        },
+        {
+            "SurveyID": "SV_4TLSPrwNIjymdh3",
+            "Element": "SO",
+            "PrimaryAttribute": "Survey Options",
+            "SecondaryAttribute": null,
+            "TertiaryAttribute": null,
+            "Payload": {
+                "BackButton": "false",
+                "SaveAndContinue": "true",
+                "SurveyProtection": "PublicSurvey",
+                "BallotBoxStuffingPrevention": "false",
+                "NoIndex": "Yes",
+                "SecureResponseFiles": "true",
+                "SurveyExpiration": "None",
+                "SurveyTermination": "DefaultMessage",
+                "Header": "",
+                "Footer": "",
+                "ProgressBarDisplay": "None",
+                "PartialData": "+1 week",
+                "ValidationMessage": "",
+                "PreviousButton": " \u2190 ",
+                "NextButton": " \u2192 ",
+                "SurveyTitle": "Online Survey Software | Qualtrics Survey Solutions",
+                "SkinLibrary": "edinburghinformatics",
+                "SkinType": "templated",
+                "Skin": {
+                    "brandingId": null,
+                    "templateId": "*2014",
+                    "overrides": null
+                },
+                "NewScoring": 1
+            }
+        },
+        {
+            "SurveyID": "SV_4TLSPrwNIjymdh3",
+            "Element": "SCO",
+            "PrimaryAttribute": "Scoring",
+            "SecondaryAttribute": null,
+            "TertiaryAttribute": null,
+            "Payload": {
+                "ScoringCategories": [],
+                "ScoringCategoryGroups": [],
+                "ScoringSummaryCategory": null,
+                "ScoringSummaryAfterQuestions": 0,
+                "ScoringSummaryAfterSurvey": 0,
+                "DefaultScoringCategory": null,
+                "AutoScoringCategory": null
+            }
+        },
+        {
+            "SurveyID": "SV_4TLSPrwNIjymdh3",
+            "Element": "PROJ",
+            "PrimaryAttribute": "CORE",
+            "SecondaryAttribute": null,
+            "TertiaryAttribute": "1.1.0",
+            "Payload": {
+                "ProjectCategory": "CORE",
+                "SchemaVersion": "1.1.0"
+            }
+        },
+        {
+            "SurveyID": "SV_4TLSPrwNIjymdh3",
+            "Element": "STAT",
+            "PrimaryAttribute": "Survey Statistics",
+            "SecondaryAttribute": null,
+            "TertiaryAttribute": null,
+            "Payload": {
+                "MobileCompatible": true,
+                "ID": "Survey Statistics"
+            }
+        },
+        {
+            "SurveyID": "SV_4TLSPrwNIjymdh3",
+            "Element": "QC",
+            "PrimaryAttribute": "Survey Question Count",
+            "SecondaryAttribute": "6",
+            "TertiaryAttribute": null,
+            "Payload": null
+        },
+        {
+            "SurveyID": "SV_4TLSPrwNIjymdh3",
+            "Element": "SQ",
+            "PrimaryAttribute": "QID1",
+            "SecondaryAttribute": "Are there any errors in this speech sample?",
+            "TertiaryAttribute": null,
+            "Payload": {
+                "QuestionText": "Are there any errors in this speech sample? Sentence: <em> 'This is sentence 1'\n <audio class=\"qmedia\" controls=\"true\" height=\"40\" preload=\"auto\" width=\"320\"><source src=\"http://www.naturesongs.com/toso2.wav\n\" type=\"audio/wav\" /><embed class=\"qmedia\" flashconsts=\"file=http://www.naturesongs.com/toso2.wav\n&amp;width=320&amp;height=20&amp;type=wav&amp;autostart=false\" height=\"20\" pluginspage=\"http://adobe.com/flashplayer/\" src=\"/WRQualtricsShared/Flash/flvplayer.swf\" type=\"application/x-shockwave-flash\" width=\"320\" wmode=\"transparent\" /></audio>\n</em>",
+                "DataExportTag": "Q1",
+                "QuestionType": "MC",
+                "Selector": "SAVR",
+                "SubSelector": "TX",
+                "Configuration": {
+                    "QuestionDescriptionOption": "UseText"
+                },
+                "QuestionDescription": "'This is sentence 1'\n",
+                "Choices": {
+                    "1": {
+                        "Display": "Yes"
+                    },
+                    "2": {
+                        "Display": "No"
+                    }
+                },
+                "ChoiceOrder": [
+                    1,
+                    2
+                ],
+                "Validation": {
+                    "Settings": {
+                        "ForceResponse": "ON",
+                        "ForceResponseType": "ON",
+                        "Type": "None"
+                    }
+                },
+                "Language": [],
+                "NextChoiceId": 3,
+                "NextAnswerId": 1,
+                "QuestionID": "QID1"
+            }
+        },
+        {
+            "SurveyID": "SV_4TLSPrwNIjymdh3",
+            "Element": "SQ",
+            "PrimaryAttribute": "QID2",
+            "SecondaryAttribute": "Are there any errors in this speech sample?",
+            "TertiaryAttribute": null,
+            "Payload": {
+                "QuestionText": "Are there any errors in this speech sample? Sentence: <em> 'This is sentence 2'\n <audio class=\"qmedia\" controls=\"true\" height=\"40\" preload=\"auto\" width=\"320\"><source src=\"http://www.naturesongs.com/toso2.wav\n\" type=\"audio/wav\" /><embed class=\"qmedia\" flashconsts=\"file=http://www.naturesongs.com/toso2.wav\n&amp;width=320&amp;height=20&amp;type=wav&amp;autostart=false\" height=\"20\" pluginspage=\"http://adobe.com/flashplayer/\" src=\"/WRQualtricsShared/Flash/flvplayer.swf\" type=\"application/x-shockwave-flash\" width=\"320\" wmode=\"transparent\" /></audio>\n</em>",
+                "DataExportTag": "Q2",
+                "QuestionType": "MC",
+                "Selector": "SAVR",
+                "SubSelector": "TX",
+                "Configuration": {
+                    "QuestionDescriptionOption": "UseText"
+                },
+                "QuestionDescription": "'This is sentence 2'\n",
+                "Choices": {
+                    "1": {
+                        "Display": "Yes"
+                    },
+                    "2": {
+                        "Display": "No"
+                    }
+                },
+                "ChoiceOrder": [
+                    1,
+                    2
+                ],
+                "Validation": {
+                    "Settings": {
+                        "ForceResponse": "ON",
+                        "ForceResponseType": "ON",
+                        "Type": "None"
+                    }
+                },
+                "Language": [],
+                "NextChoiceId": 3,
+                "NextAnswerId": 1,
+                "QuestionID": "QID2"
+            }
+        },
+        {
+            "SurveyID": "SV_4TLSPrwNIjymdh3",
+            "Element": "SQ",
+            "PrimaryAttribute": "QID3",
+            "SecondaryAttribute": "Are there any errors in this speech sample?",
+            "TertiaryAttribute": null,
+            "Payload": {
+                "QuestionText": "Are there any errors in this speech sample? Sentence: <em> 'This is sentence 3'\n <audio class=\"qmedia\" controls=\"true\" height=\"40\" preload=\"auto\" width=\"320\"><source src=\"http://www.naturesongs.com/toso2.wav\" type=\"audio/wav\" /><embed class=\"qmedia\" flashconsts=\"file=http://www.naturesongs.com/toso2.wav&amp;width=320&amp;height=20&amp;type=wav&amp;autostart=false\" height=\"20\" pluginspage=\"http://adobe.com/flashplayer/\" src=\"/WRQualtricsShared/Flash/flvplayer.swf\" type=\"application/x-shockwave-flash\" width=\"320\" wmode=\"transparent\" /></audio>\n</em>",
+                "DataExportTag": "Q3",
+                "QuestionType": "MC",
+                "Selector": "SAVR",
+                "SubSelector": "TX",
+                "Configuration": {
+                    "QuestionDescriptionOption": "UseText"
+                },
+                "QuestionDescription": "'This is sentence 3'\n",
+                "Choices": {
+                    "1": {
+                        "Display": "Yes"
+                    },
+                    "2": {
+                        "Display": "No"
+                    }
+                },
+                "ChoiceOrder": [
+                    1,
+                    2
+                ],
+                "Validation": {
+                    "Settings": {
+                        "ForceResponse": "ON",
+                        "ForceResponseType": "ON",
+                        "Type": "None"
+                    }
+                },
+                "Language": [],
+                "NextChoiceId": 3,
+                "NextAnswerId": 1,
+                "QuestionID": "QID3"
+            }
+        },
+        {
+            "SurveyID": "SV_4TLSPrwNIjymdh3",
+            "Element": "SQ",
+            "PrimaryAttribute": "QID4",
+            "SecondaryAttribute": "Which of the following sounds the most natural?",
+            "TertiaryAttribute": null,
+            "Payload": {
+                "QuestionText": "Which of the following sounds the most natural?",
+                "DataExportTag": "Q4",
+                "QuestionType": "MC",
+                "Selector": "SAVR",
+                "SubSelector": "TX",
+                "Configuration": {
+                    "QuestionDescriptionOption": "UseText"
+                },
+                "QuestionDescription": "Which of the following sounds the most natural?",
+                "Choices": {
+                    "1": {
+                        "Display": "<audio class=\"qmedia\" controls=\"true\" height=\"40\" preload=\"auto\" width=\"320\"><source src=\"http://www.naturesongs.com/toso2.wav\" type=\"audio/wav\" /><embed class=\"qmedia\" flashconsts=\"file=http://www.naturesongs.com/toso2.wav&amp;width=320&amp;height=20&amp;type=wav&amp;autostart=false\" height=\"20\" pluginspage=\"http://adobe.com/flashplayer/\" src=\"/WRQualtricsShared/Flash/flvplayer.swf\" type=\"application/x-shockwave-flash\" width=\"320\" wmode=\"transparent\" /></audio>\n"
+                    },
+                    "2": {
+                        "Display": "<audio class=\"qmedia\" controls=\"true\" height=\"40\" preload=\"auto\" width=\"320\"><source src=\"http://www.naturesongs.com/toso2.wav\" type=\"audio/wav\" /><embed class=\"qmedia\" flashconsts=\"file=http://www.naturesongs.com/toso2.wav&amp;width=320&amp;height=20&amp;type=wav&amp;autostart=false\" height=\"20\" pluginspage=\"http://adobe.com/flashplayer/\" src=\"/WRQualtricsShared/Flash/flvplayer.swf\" type=\"application/x-shockwave-flash\" width=\"320\" wmode=\"transparent\" /></audio>\n"
+                    }
+                },
+                "ChoiceOrder": [
+                    1,
+                    2
+                ],
+                "Validation": {
+                    "Settings": {
+                        "ForceResponse": "ON",
+                        "ForceResponseType": "ON",
+                        "Type": "None"
+                    }
+                },
+                "Language": [],
+                "NextChoiceId": 3,
+                "NextAnswerId": 1,
+                "QuestionID": "QID4",
+                "Randomization": {
+                    "Advanced": null,
+                    "Type": "All",
+                    "TotalRandSubset": ""
+                }
+            }
+        },
+        {
+            "SurveyID": "SV_4TLSPrwNIjymdh3",
+            "Element": "SQ",
+            "PrimaryAttribute": "QID5",
+            "SecondaryAttribute": "Which of the following sounds the most natural?",
+            "TertiaryAttribute": null,
+            "Payload": {
+                "QuestionText": "Which of the following sounds the most natural?",
+                "DataExportTag": "Q5",
+                "QuestionType": "MC",
+                "Selector": "SAVR",
+                "SubSelector": "TX",
+                "Configuration": {
+                    "QuestionDescriptionOption": "UseText"
+                },
+                "QuestionDescription": "Which of the following sounds the most natural?",
+                "Choices": {
+                    "1": {
+                        "Display": "<audio class=\"qmedia\" controls=\"true\" height=\"40\" preload=\"auto\" width=\"320\"><source src=\"http://www.naturesongs.com/toso2.wav\" type=\"audio/wav\" /><embed class=\"qmedia\" flashconsts=\"file=http://www.naturesongs.com/toso2.wav&amp;width=320&amp;height=20&amp;type=wav&amp;autostart=false\" height=\"20\" pluginspage=\"http://adobe.com/flashplayer/\" src=\"/WRQualtricsShared/Flash/flvplayer.swf\" type=\"application/x-shockwave-flash\" width=\"320\" wmode=\"transparent\" /></audio>\n"
+                    },
+                    "2": {
+                        "Display": "<audio class=\"qmedia\" controls=\"true\" height=\"40\" preload=\"auto\" width=\"320\"><source src=\"http://www.naturesongs.com/toso2.wav\" type=\"audio/wav\" /><embed class=\"qmedia\" flashconsts=\"file=http://www.naturesongs.com/toso2.wav&amp;width=320&amp;height=20&amp;type=wav&amp;autostart=false\" height=\"20\" pluginspage=\"http://adobe.com/flashplayer/\" src=\"/WRQualtricsShared/Flash/flvplayer.swf\" type=\"application/x-shockwave-flash\" width=\"320\" wmode=\"transparent\" /></audio>\n"
+                    }
+                },
+                "ChoiceOrder": [
+                    1,
+                    2
+                ],
+                "Validation": {
+                    "Settings": {
+                        "ForceResponse": "ON",
+                        "ForceResponseType": "ON",
+                        "Type": "None"
+                    }
+                },
+                "Language": [],
+                "NextChoiceId": 3,
+                "NextAnswerId": 1,
+                "QuestionID": "QID5",
+                "Randomization": {
+                    "Advanced": null,
+                    "Type": "All",
+                    "TotalRandSubset": ""
+                }
+            }
+        },
+        {
+            "SurveyID": "SV_4TLSPrwNIjymdh3",
+            "Element": "SQ",
+            "PrimaryAttribute": "QID6",
+            "SecondaryAttribute": "Which of the following sounds the most natural?",
+            "TertiaryAttribute": null,
+            "Payload": {
+                "QuestionText": "Which of the following sounds the most natural?",
+                "DataExportTag": "Q6",
+                "QuestionType": "MC",
+                "Selector": "SAVR",
+                "SubSelector": "TX",
+                "Configuration": {
+                    "QuestionDescriptionOption": "UseText"
+                },
+                "QuestionDescription": "Which of the following sounds the most natural?",
+                "Choices": {
+                    "1": {
+                        "Display": "<audio class=\"qmedia\" controls=\"true\" height=\"40\" preload=\"auto\" width=\"320\"><source src=\"http://www.naturesongs.com/toso2.wav\" type=\"audio/wav\" /><embed class=\"qmedia\" flashconsts=\"file=http://www.naturesongs.com/toso2.wav&amp;width=320&amp;height=20&amp;type=wav&amp;autostart=false\" height=\"20\" pluginspage=\"http://adobe.com/flashplayer/\" src=\"/WRQualtricsShared/Flash/flvplayer.swf\" type=\"application/x-shockwave-flash\" width=\"320\" wmode=\"transparent\" /></audio>\n"
+                    },
+                    "2": {
+                        "Display": "<audio class=\"qmedia\" controls=\"true\" height=\"40\" preload=\"auto\" width=\"320\"><source src=\"http://www.naturesongs.com/toso2.wav\" type=\"audio/wav\" /><embed class=\"qmedia\" flashconsts=\"file=http://www.naturesongs.com/toso2.wav&amp;width=320&amp;height=20&amp;type=wav&amp;autostart=false\" height=\"20\" pluginspage=\"http://adobe.com/flashplayer/\" src=\"/WRQualtricsShared/Flash/flvplayer.swf\" type=\"application/x-shockwave-flash\" width=\"320\" wmode=\"transparent\" /></audio>\n"
+                    }
+                },
+                "ChoiceOrder": [
+                    1,
+                    2
+                ],
+                "Validation": {
+                    "Settings": {
+                        "ForceResponse": "ON",
+                        "ForceResponseType": "ON",
+                        "Type": "None"
+                    }
+                },
+                "Language": [],
+                "NextChoiceId": 3,
+                "NextAnswerId": 1,
+                "QuestionID": "QID6",
+                "Randomization": {
+                    "Advanced": null,
+                    "Type": "All",
+                    "TotalRandSubset": ""
+                }
+            }
+        },
+        {
+            "SurveyID": "SV_4TLSPrwNIjymdh3",
+            "Element": "RS",
+            "PrimaryAttribute": "RS_eGb1goyHZC4czDn",
+            "SecondaryAttribute": "Default Response Set",
+            "TertiaryAttribute": null,
+            "Payload": null
+        }
+    ]
+}
