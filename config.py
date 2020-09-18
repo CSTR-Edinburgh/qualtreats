@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # change the text you want to appear in your questions
 ab_question_text = "Which of the following sounds the most natural?"
 mc_question_text= "Are there any errors in this speech sample?"
@@ -57,3 +58,36 @@ survey_id = "SV_4TLSPrwNIjymdh3"
 # mc_urls, mc_filenames = format_single_urls(mc_file)
 # abc_urls = format_abc_urls(abc_file1, abc_file2, abc_file3)
 # trs_urls, trs_filenames = format_single_urls(trs_file)
+=======
+# survey_id can remain unchanged
+survey_id = "SV_4TLSPrwNIjymdh3"
+
+# the below variables should be set according to your survey specifications
+
+# this text will appear in each question
+ab_question_text = "Which of the following sounds the most natural?"
+mc_question_text= "Are there any errors in this speech sample?"
+trs_question_text = "Please type the sentence you hear in this audio sample."
+mushra_question_text = "How natural are the following speech recordings? <br> Reference: "
+
+# these files contain the urls to be embedded in questions/choices
+# each file should have a filename and url per line, separated by whitespace
+ab_file1 = "ab-urls-True.txt"
+ab_file2 = "ab-urls-False.txt"
+abc_file1 = "abc-urls-1.txt"
+abc_file2 = "abc-urls-2.txt"
+abc_file3 = "abc-urls-3.txt"
+mc_file = "mc-urls.txt"
+trs_file = "trs-urls.txt"
+
+# mushra filenames should be the same across sound conditions
+# audiofile urls should vary only by folder name
+mushra_files = "mushra-urls.txt"
+mushra_root = "http://groups.inf.ed.ac.uk/cstr3/cvbotinh/SM/RQ4/SystemComparison/test1/wavs/"
+mushra_folders = ["1book/","2books/","4books/","vocoded/", "SR/"]
+mushra_ref_folder = "vocoded/"
+
+# MC questions have sentence text embedded
+# this file should have a filename and corresponding sentence string per line,
+mc_sentence_file = "sentences.txt"
+>>>>>>> Stashed changes
