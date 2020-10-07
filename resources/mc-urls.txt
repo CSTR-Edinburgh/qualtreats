@@ -1,0 +1,3 @@
+file1 https://groups.inf.ed.ac.uk/cstr3/cvbotinh/Mushra_example/samples/G1HA/hvd_416.wav
+file2 https://groups.inf.ed.ac.uk/cstr3/cvbotinh/Mushra_example/samples/G1HA/hvd_417.wav
+file3 https://groups.inf.ed.ac.uk/cstr3/cvbotinh/Mushra_example/samples/G1HA/hvd_418.wav
