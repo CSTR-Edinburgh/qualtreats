@@ -66,7 +66,7 @@ def get_sentences(sentence_file):
     return {line.split(' ', 1)[0] : line.split(' ', 1)[1].replace('\n', '') for line in lines}
 
 # make a new question using basis question and urls
-def make_question(qid, urls, basis_question, question_type, question_text):
+def make_question(qid, urls, basis_question, question_type, question_function, question_text):
     new_question = copy.deepcopy(basis_question)
     # Set the survey ID
     new_question['SurveyID'] = config.survey_id
@@ -78,36 +78,44 @@ def make_question(qid, urls, basis_question, question_type, question_text):
     new_question["Payload"]["QuestionDescription"] = f'QID{qid}: {question_type}'
     # set the question text
     new_question["Payload"]["QuestionText"] = question_text
-    if  question_type == '-mc':
-        new_question['Payload']['Choices']['1']['Display'] = "Yes"  # add the choices
-        new_question['Payload']['Choices']['2']['Display'] = "No"
-    else:
-        try:
-            # make choice template for when n of urls determines n of choices
-            choice_template = new_question['Payload']['Choices']['1']
-        except KeyError:
-            pass
-            # empty 'Choices' so flexible number can be added using Choice template
-            new_question['Payload']['Choices'] = {}
-        if question_type == '-ab' or question_type == '-abc':
-            for i, url in enumerate(urls):
-                choice = copy.deepcopy(choice_template)
-                choice['Display'] = get_player_html(url) # add audio player as choice
-                new_question['Payload']['Choices'][f'{i+1}'] = choice
-        elif question_type == '-mushra':
-            for i, url in enumerate(urls):
-                choice = copy.deepcopy(choice_template)
-                choice['Display'] = get_play_button(url, str(i)) # add audio player as choice
-                new_question['Payload']['Choices'][f'{i+1}'] = choice
-                # set the choice logic to require that 1+ audio samples are rated == 100
-                logic = new_question['Payload']['Validation']['Settings']\
-                            ['CustomValidation']['Logic']['0'][f'{i}']
-                logic['QuestionID'] = f"QID{qid}"
-                logic["QuestionIDFromLocator"] = f"QID{qid}"
-                logic["ChoiceLocator"] = f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}"
-                logic["LeftOperand"] = f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}"
-                new_question['Payload']['Validation']['Settings']\
-                            ['CustomValidation']['Logic']['0'][f'{i}'] = logic
+    try: # call handler function for each question type
+        question_function(new_question, urls, qid)
+    except TypeError:
+        pass
+    return new_question
+
+def mc_q(new_question, urls=None, qid=None): # handler function for mc questions
+    new_question['Payload']['Choices']['1']['Display'] = "Yes"  # add the choices
+    new_question['Payload']['Choices']['2']['Display'] = "No"
+    return new_question
+
+def ab_q(new_question, urls, qid=None): # handler function for ab/abc questions
+    choice_template = new_question['Payload']['Choices']['1']# make choice template
+    # empty 'Choices' so flexible number can be added using Choice template
+    new_question['Payload']['Choices'] = {}
+    for i, url in enumerate(urls):
+        choice = copy.deepcopy(choice_template)
+        choice['Display'] = get_player_html(url) # add audio player as choice
+        new_question['Payload']['Choices'][f'{i+1}'] = choice
+    return new_question
+
+def mushra_q(new_question, urls, qid): # handler function for mushra questions
+    choice_template = new_question['Payload']['Choices']['1']# make choice template
+    # empty 'Choices' so flexible number can be added using Choice template
+    new_question['Payload']['Choices'] = {}
+    for i, url in enumerate(urls):
+        choice = copy.deepcopy(choice_template)
+        choice['Display'] = get_play_button(url, str(i)) # add audio player as choice
+        new_question['Payload']['Choices'][f'{i+1}'] = choice
+        # set the choice logic to require that 1+ audio samples are rated == 100
+        logic = new_question['Payload']['Validation']['Settings']\
+                    ['CustomValidation']['Logic']['0'][f'{i}']
+        logic['QuestionID'] = f"QID{qid}"
+        logic["QuestionIDFromLocator"] = f"QID{qid}"
+        logic["ChoiceLocator"] = f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}"
+        logic["LeftOperand"] = f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}"
+        new_question['Payload']['Validation']['Settings']\
+                    ['CustomValidation']['Logic']['0'][f'{i}'] = logic
     return new_question
 
 # make n new blocks according to the survey_length
@@ -158,8 +166,7 @@ def main():
     elements = list(map(set_id, elements))
 
     # get question template blocks from elements JSON
-    # element order differs between surveys- check order if you're using your own template
-
+    # element order differs between surveys- check if you're using your own template
     basis_question_dict = {'-ab': elements[11],'-mc': elements[7],'-trs':elements[10],\
                            '-abc': elements[12],'-mushra': elements[9]}
     basis_blocks = elements[0]
@@ -180,8 +187,11 @@ def main():
                     '-mushra': f"{config.mushra_question_text}\
                         {get_play_button('$ref_url', 'ref')}"}
 
+    handler_dict = {'-ab': ab_q,'-abc': ab_q,'-mc': mc_q,'-trs': None,'-mushra': mushra_q}
+
     # create list to store generated question blocks
     questions = []
+
     # create counters to use when indexing optional lists
     q_counter = 1 # qualtrics question numbering starts at 1
     mc_counter = 0
@@ -193,13 +203,11 @@ def main():
                                             urls=urls,
                                             basis_question=basis_question_dict[arg],
                                             question_type=arg,
-                                            # mc_count=mc_counter,
-                                            # reference_url=mushra_ref_urls[mushra_counter],
+                                            question_function=handler_dict[arg],
                                             question_text=Template(q_text_dict[arg]).substitute\
                                                 (ref_url=mushra_ref_urls[mushra_counter],
                                                  urls=urls,
                                                  sentence=mc_sentences[mc_filenames[mc_counter]])))
-
             q_counter += 1
             # don't increment these counters the last time (to prevent index error)
             mc_counter += 1 if arg == '-mc' and mc_counter+1 < len(mc_filenames) else 0
