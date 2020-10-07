@@ -35,30 +35,33 @@ def get_play_button(url, n):
         return Template(html_file.read()).substitute(url=url, player=n)
 
 # makes lists of formatted urls from the filenames in the config file
-def format_urls(question_type, file_1, file_2=None, file_3=None):
+def format_urls(question_type, file_1, file_2=None, file_3=None, url_function):
     with open(file_1) as f1:
-        try:
-            with open(file_2) as f2: # only -ab & -abc have >1 url file
-                if question_type == '-ab': # returns list of url pairs
-                    return [(line1.split()[1],line2.split()[1])\
-                            for line1, line2 in zip(f1,f2)]
-                elif question_type == '-abc':
-                    with open(file_3) as f3: # returns list of url trios
-                        return [(line1.split()[1],line2.split()[1],line3.split()[1])\
-                                for line1, line2, line3 in zip(f1, f2, f3)]
-        except:
-            if question_type == '-mc' or question_type == '-trs':
-                names, urls = zip(*(l.split(' ', 1) for l in f1))
-                return urls, names
-            elif question_type == '-mushra': # returns test & reference url lists
-                lines = f1.readlines() # ref audio is embedded in the question
-                ref_url_list =  [os.path.join(config.mushra_root, config.mushra_ref_folder,\
-                                line.replace("\n", "")) for line in lines]
-                # creates list containing sets of urls which vary only by folder name
-                test_url_list = [[os.path.join(config.mushra_root, folder,\
-                                line.replace("\n", "")) for folder in config.mushra_folders]
-                                for line in lines]
-                return test_url_list, ref_url_list
+        url_function(f1, file2, file3)
+
+def one_url(f1): # returns list of urls and list of filenames
+    names, urls = zip(*(l.split(' ', 1) for l in f1))
+    return urls, names
+
+def two_url(f1, file_2):# returns list of url pairs
+    with open(file_2) as f2:
+    return [(line1.split()[1],line2.split()[1]) for line1, line2 in zip(f1,f2)]
+
+def three_url(f1, file_2, file_3): #returns list of url trios
+    with open(file_2) as f2: # only -ab & -abc have >1 url file
+        with open(file_3) as f3: # returns list of url trios
+            return [(line1.split()[1],line2.split()[1],line3.split()[1])\
+                        for line1, line2, line3 in zip(f1, f2, f3)]
+
+def mushra_url(f1):  # returns test & reference url lists
+    lines = f1.readlines() # ref audio is embedded in the question
+    ref_url_list =  [os.path.join(config.mushra_root, config.mushra_ref_folder,\
+                    line.replace("\n", "")) for line in lines]
+    # creates list containing sets of urls which vary only by folder name
+    test_url_list = [[os.path.join(config.mushra_root, folder,\
+                    line.replace("\n", "")) for folder in config.mushra_folders]
+                    for line in lines]
+    return test_url_list, ref_url_list
 
 # load sentences from text file, to be embedded into MC question text
 def get_sentences(sentence_file):
@@ -66,7 +69,7 @@ def get_sentences(sentence_file):
     return {line.split(' ', 1)[0] : line.split(' ', 1)[1].replace('\n', '') for line in lines}
 
 # make a new question using basis question and urls
-def make_question(qid, urls, basis_question, question_type, question_text):
+def make_question(qid, urls, basis_question, question_type, question_text, question_function):
     new_question = copy.deepcopy(basis_question)
     # Set the survey ID
     new_question['SurveyID'] = config.survey_id
@@ -78,36 +81,44 @@ def make_question(qid, urls, basis_question, question_type, question_text):
     new_question["Payload"]["QuestionDescription"] = f'QID{qid}: {question_type}'
     # set the question text
     new_question["Payload"]["QuestionText"] = question_text
-    if  question_type == '-mc':
-        new_question['Payload']['Choices']['1']['Display'] = "Yes"  # add the choices
-        new_question['Payload']['Choices']['2']['Display'] = "No"
-    else:
-        try:
-            # make choice template for when n of urls determines n of choices
-            choice_template = new_question['Payload']['Choices']['1']
-        except KeyError:
-            pass
-            # empty 'Choices' so flexible number can be added using Choice template
-            new_question['Payload']['Choices'] = {}
-        if question_type == '-ab' or question_type == '-abc':
-            for i, url in enumerate(urls):
-                choice = copy.deepcopy(choice_template)
-                choice['Display'] = get_player_html(url) # add audio player as choice
-                new_question['Payload']['Choices'][f'{i+1}'] = choice
-        elif question_type == '-mushra':
-            for i, url in enumerate(urls):
-                choice = copy.deepcopy(choice_template)
-                choice['Display'] = get_play_button(url, str(i)) # add audio player as choice
-                new_question['Payload']['Choices'][f'{i+1}'] = choice
-                # set the choice logic to require that 1+ audio samples are rated == 100
-                logic = new_question['Payload']['Validation']['Settings']\
-                            ['CustomValidation']['Logic']['0'][f'{i}']
-                logic['QuestionID'] = f"QID{qid}"
-                logic["QuestionIDFromLocator"] = f"QID{qid}"
-                logic["ChoiceLocator"] = f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}"
-                logic["LeftOperand"] = f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}"
-                new_question['Payload']['Validation']['Settings']\
-                            ['CustomValidation']['Logic']['0'][f'{i}'] = logic
+    try: # call handler function for each question type
+        question_function(new_question, urls, qid)
+    except TypeError:
+        pass
+    return new_question
+
+def mc_q(new_question, urls=None, qid=None): # handler function for mc questions
+    new_question['Payload']['Choices']['1']['Display'] = "Yes"  # add the choices
+    new_question['Payload']['Choices']['2']['Display'] = "No"
+    return new_question
+
+def ab_q(new_question, urls, qid=None): # handler function for ab/abc questions
+    choice_template = new_question['Payload']['Choices']['1']# make choice template
+    # empty 'Choices' so flexible number can be added using Choice template
+    new_question['Payload']['Choices'] = {}
+    for i, url in enumerate(urls):
+        choice = copy.deepcopy(choice_template)
+        choice['Display'] = get_player_html(url) # add audio player as choice
+        new_question['Payload']['Choices'][f'{i+1}'] = choice
+    return new_question
+
+def mushra_q(new_question, urls, qid): # handler function for mushra questions
+    choice_template = new_question['Payload']['Choices']['1']# make choice template
+    # empty 'Choices' so flexible number can be added using Choice template
+    new_question['Payload']['Choices'] = {}
+    for i, url in enumerate(urls):
+        choice = copy.deepcopy(choice_template)
+        choice['Display'] = get_play_button(url, str(i)) # add audio player as choice
+        new_question['Payload']['Choices'][f'{i+1}'] = choice
+        # set the choice logic to require that 1+ audio samples are rated == 100
+        logic = new_question['Payload']['Validation']['Settings']\
+                    ['CustomValidation']['Logic']['0'][f'{i}']
+        logic['QuestionID'] = f"QID{qid}"
+        logic["QuestionIDFromLocator"] = f"QID{qid}"
+        logic["ChoiceLocator"] = f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}"
+        logic["LeftOperand"] = f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}"
+        new_question['Payload']['Validation']['Settings']\
+                    ['CustomValidation']['Logic']['0'][f'{i}'] = logic
     return new_question
 
 # make n new blocks according to the survey_length
@@ -140,12 +151,19 @@ def main():
                         help="make MUSHRA questions with sliders")
     args = parser.parse_args()
 
+    # create dictionary to map args to handler functions
+    handler_dict = {'url':{'-ab': two_url'-abc': three_url,'-mc': one_url,'-trs': one_url,'-mushra': mushra_url},
+                'q':{'-ab': ab_q,'-abc': ab_q,'-mc': mc_q,'-trs': None,'-mushra': mushra_q}}
     # create dictionary with question type : url list
-    url_dict = {'-ab':format_urls('-ab', config.ab_file1, config.ab_file2),
+    url_dict = {'-ab':format_urls('-ab', config.ab_file1, config.ab_file2, handler_dict[]),
                 '-abc':format_urls('-abc', config.abc_file1, config.abc_file2, config.abc_file3)}
     url_dict['-mc'], mc_filenames = format_urls('-mc', config.mc_file)
     url_dict['-trs'], trs_filenames = format_urls('-trs', config.trs_file)
     url_dict['-mushra'], mushra_ref_urls = format_urls('-mushra',config.mushra_files)
+
+    # url_dict = {arg : format_urlsfor arg in sys.argv[1:]}
+    url_dict = {arg : format_urls(arg)
+
 
     # get sentences from file to embed in multiple choice questions
     mc_sentences = get_sentences(config.mc_sentence_file)
@@ -180,6 +198,7 @@ def main():
                     '-mushra': f"{config.mushra_question_text}\
                         {get_play_button('$ref_url', 'ref')}"}
 
+
     # create list to store generated question blocks
     questions = []
     # create counters to use when indexing optional lists
@@ -198,8 +217,8 @@ def main():
                                             question_text=Template(q_text_dict[arg]).substitute\
                                                 (ref_url=mushra_ref_urls[mushra_counter],
                                                  urls=urls,
-                                                 sentence=mc_sentences[mc_filenames[mc_counter]])))
-
+                                                 sentence=mc_sentences[mc_filenames[mc_counter]]),
+                                            question_function=handler_dict['q'][arg]))
             q_counter += 1
             # don't increment these counters the last time (to prevent index error)
             mc_counter += 1 if arg == '-mc' and mc_counter+1 < len(mc_filenames) else 0
