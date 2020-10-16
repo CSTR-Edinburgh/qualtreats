@@ -3,6 +3,9 @@ This is a tool for automating the process of creating online listening tests in 
 # Background
 This tool reduces number of manual steps required to create a functioning test. It works by generating a JSON file which Qualtrics will interpret to  produce a survey. It was originally created for use in evaluating text-to-speech systems, but has wider applications in speech technology and other audio-related fields.
 
+
+This is not supported in any way by Qualtrics and is 100% unofficial.
+
 # Functionality
 
 It currently supports:
