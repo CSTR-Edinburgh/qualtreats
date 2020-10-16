@@ -38,27 +38,26 @@ def format_urls(question_type, file_1, file_2=None, file_3=None):
     with open(file_1) as f1:
         try:
             with open(file_2) as f2: # only -ab & -abc have >1 url file
+                # helper lambda saves some code later on "gf" means get first
+                gf = lambda x: x.split()[1]
                 if question_type == 'ab': # returns list of url pairs
-                    return [(line1.split()[1],line2.split()[1])\
-                            for line1, line2 in zip(f1,f2)]
+                    return [(gf(line1),gf(line2)) for line1, line2 in zip(f1,f2)]
                 elif question_type == 'abc':
                     with open(file_3) as f3: # returns list of url trios
-                        return [(line1.split()[1],line2.split()[1],line3.split()[1])\
-                                for line1, line2, line3 in zip(f1, f2, f3)]
+                        return [(gf(line1),gf(line2),gf(line3)) for line1, line2, line3 in zip(f1, f2, f3)]
         except:
             if question_type == 'mc' or question_type == 'trs':
                 names, urls = zip(*(l.split(' ', 1) for l in f1))
                 return urls, names
             elif question_type == 'mushra': # returns test & reference url lists
                 lines = f1.readlines() # ref audio is embedded in the question
-                ref_url_list =  [os.path.join
-                                        (config.mushra_root,
-                                        config.mushra_ref_folder,
-                                        line.replace("\n", ""))
-                                for line in lines]
+                ref_url_list =  [os.path.join(config.mushra_root,
+                                config.mushra_ref_folder,
+                                line.replace("\n", ""))for line in lines]
                 # creates list containing sets of urls which vary only by folder name
-                test_url_list = [[os.path.join(config.mushra_root, folder,
-                                line.replace("\n", "")) for folder in config.mushra_folders]
+                test_url_list = [[os.path.join(config.mushra_root,
+                                folder, line.replace("\n", ""))
+                                for folder in config.mushra_folders]
                                 for line in lines]
                 return test_url_list, ref_url_list
 
@@ -68,8 +67,7 @@ def get_sentences(sentence_file):
     return {line.split(' ', 1)[0] : line.split(' ', 1)[1].replace('\n', '') for line in lines}
 
 # make a new question using basis question and urls
-def make_question(qid, urls, basis_question, question_type,
-                  question_function, question_text):
+def make_question(qid, urls, basis_question, question_type, question_function, question_text):
     new_question = copy.deepcopy(basis_question)
     # Set the survey ID
     new_question['SurveyID'] = config.survey_id
@@ -115,11 +113,12 @@ def mushra_q(new_question, urls, qid):
         new_question['Payload']['Choices'][f'{i+1}'] = choice
         # set the choice logic to require that 1+ audio samples are rated == 100
         logic = new_question['Payload']['Validation']['Settings']\
-                    ['CustomValidation']['Logic']['0'][f'{i}']
+                            ['CustomValidation']['Logic']['0'][f'{i}']
         logic['QuestionID'] = f"QID{qid}"
         logic["QuestionIDFromLocator"] = f"QID{qid}"
         logic["ChoiceLocator"] = f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}"
         logic["LeftOperand"] = f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}"
+        # update the logic in new_question
         new_question['Payload']['Validation']['Settings']\
                     ['CustomValidation']['Logic']['0'][f'{i}'] = logic
     return new_question
@@ -156,9 +155,10 @@ def main():
                         "(with text field)")
     parser.add_argument("-mushra", action='store_true',
                         help="make MUSHRA questions with sliders")
+
     args = parser.parse_args()
 
-    # create dictionary with question type : url list
+    # create dictionary with questiontype:list of urls
     url_dict = {'ab':format_urls('ab',
                                  config.ab_file1,
                                  config.ab_file2),
@@ -167,7 +167,7 @@ def main():
                                   config.abc_file2,
                                   config.abc_file3)}
 
-    # create new dictionary key and variable, when function returns 2 url sets
+    # when function returns 2 url lists, store one in dict and other as variable
     url_dict['mc'], mc_filenames = format_urls('mc', config.mc_file)
     url_dict['trs'], trs_filenames = format_urls('trs', config.trs_file)
     url_dict['mushra'], ref_urls = format_urls('mushra', config.mushra_files)
@@ -209,6 +209,7 @@ def main():
                     'mushra': f"{config.mushra_question_text}\
                                 {get_play_button('$ref_url', 'ref')}"}
 
+    # keys=question types and values= functions for making questions
     handler_dict = {'ab': ab_q,
                     'abc': ab_q,
                     'mc': mc_q,
@@ -245,12 +246,12 @@ def main():
                                 question_text=text  # as set above
                                 ))
             q_counter += 1
-            # increment counters when a question of that type is created
+            # increment follwing counters when a question of that type is created
             # except for the last question (to prevent IndexError)
             mc_counter += (1 if arg == 'mc' and
-                          mc_counter+1 < len(mc_filenames) else 0)
+                           mc_counter+1 < len(mc_filenames) else 0)
             mushra_counter += (1 if arg == 'mushra' and
-                              mushra_counter+1 < len(ref_urls) else 0)
+                               mushra_counter+1 < len(ref_urls) else 0)
 
         # survey_length is determined by number of questions created
         survey_length = len(questions)
