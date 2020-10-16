@@ -41,10 +41,12 @@ def format_urls(question_type, file_1, file_2=None, file_3=None):
                 # helper lambda saves some code later on "gf" means get first
                 gf = lambda x: x.split()[1]
                 if question_type == 'ab': # returns list of url pairs
-                    return [(gf(line1),gf(line2)) for line1, line2 in zip(f1,f2)]
+                    return [(gf(line1),gf(line2))
+                            for line1, line2 in zip(f1,f2)]
                 elif question_type == 'abc':
                     with open(file_3) as f3: # returns list of url trios
-                        return [(gf(line1),gf(line2),gf(line3)) for line1, line2, line3 in zip(f1, f2, f3)]
+                        return [(gf(line1),gf(line2),gf(line3))
+                                for line1, line2, line3 in zip(f1, f2, f3)]
         except:
             if question_type == 'mc' or question_type == 'trs':
                 names, urls = zip(*(l.split(' ', 1) for l in f1))
@@ -67,7 +69,9 @@ def get_sentences(sentence_file):
     return {line.split(' ', 1)[0] : line.split(' ', 1)[1].replace('\n', '') for line in lines}
 
 # make a new question using basis question and urls
-def make_question(qid, urls, basis_question, question_type, question_function, question_text):
+def make_question(qid, urls, basis_question,
+                  question_type, question_function,
+                  question_text):
     new_question = copy.deepcopy(basis_question)
     # Set the survey ID
     new_question['SurveyID'] = config.survey_id
@@ -224,9 +228,12 @@ def main():
     mc_counter = 0
     mushra_counter = 0
 
-    for arg in vars(args):
-        for url_set in url_dict[arg]: # for each set of urls for that question type
-            # embed the relevant urls or sentence into the question-specific text (if applicable)
+    # get only args which were specified
+    args = [key for key, value in vars(args).items() if value==True]
+
+    for arg in args:
+        for url_set in url_dict[arg]: # for each url set for that question type
+            # embed required url or sentence into the question text
             text = Template(q_text_dict[arg]).substitute(
                                 ref_url=ref_urls[mushra_counter],
                                 urls=url_set,
@@ -246,15 +253,15 @@ def main():
                                 question_text=text  # as set above
                                 ))
             q_counter += 1
-            # increment follwing counters when a question of that type is created
+            # increment these counters when a question of that type is created
             # except for the last question (to prevent IndexError)
             mc_counter += (1 if arg == 'mc' and
                            mc_counter+1 < len(mc_filenames) else 0)
             mushra_counter += (1 if arg == 'mushra' and
                                mushra_counter+1 < len(ref_urls) else 0)
 
-        # survey_length is determined by number of questions created
-        survey_length = len(questions)
+    # survey_length is determined by number of questions created
+    survey_length = len(questions)
 
     # Create all the items in survey elements, with helper function where doing so is not trivial
     blocks = make_blocks(survey_length, basis_blocks)
