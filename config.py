@@ -9,6 +9,9 @@ mc_question_text= "Are there any errors in this speech sample?"
 trs_question_text = "Please type the sentence you hear in this audio sample."
 mushra_question_text = "How natural are the following speech recordings? <br> Reference: "
 
+# the answer options for multiple choice questions
+mc_choice_text = ['Yes', 'No']
+
 # these files should contain the urls to be embedded in questions/choices
 # each file should have a filename and url per line, separated by whitespace
 ab_file1 = "resources/ab-urls-True.txt"

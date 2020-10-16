@@ -41,8 +41,7 @@ def format_urls(question_type, file_1, file_2=None, file_3=None):
                 # helper lambda saves some code later on "gf" means get first
                 gf = lambda x: x.split()[1]
                 if question_type == 'ab': # returns list of url pairs
-                    return [(gf(line1),gf(line2))
-                            for line1, line2 in zip(f1,f2)]
+                    return [(gf(line1),gf(line2))for line1, line2 in zip(f1,f2)]
                 elif question_type == 'abc':
                     with open(file_3) as f3: # returns list of url trios
                         return [(gf(line1),gf(line2),gf(line3))
@@ -69,30 +68,22 @@ def get_sentences(sentence_file):
     return {line.split(' ', 1)[0] : line.split(' ', 1)[1].replace('\n', '') for line in lines}
 
 # make a new question using basis question and urls
-def make_question(qid, urls, basis_question,
-                  question_type, question_function,
-                  question_text):
+def make_question(qid, urls, basis_question,question_type,
+                  question_function, question_text):
     new_question = copy.deepcopy(basis_question)
     # Set the survey ID
     new_question['SurveyID'] = config.survey_id
     # Change all the things that reflect the question ID
-    new_question['Payload']['QuestionID'] = f'QID{qid}'
-    new_question['Payload']['DataExportTag'] = f'QID{qid}'
-    new_question['PrimaryAttribute'] = f'QID{qid}'
-    new_question["SecondaryAttribute"] = f'QID{qid}: {question_type}'
-    new_question["Payload"]["QuestionDescription"] = f'QID{qid}: {question_type}'
-    # set the question text
-    new_question["Payload"]["QuestionText"] = question_text
+    new_question['Payload'].update({'QuestionID' : f'QID{qid}',
+                                   'DataExportTag' : f'QID{qid}',
+                                   'QuestionDescription' : f'Q{qid}:{question_type}',
+                                   'QuestionText': question_text})
+    new_question.update({'PrimaryAttribute' : f'QID{qid}',
+                        'SecondaryAttribute' : f'QID{qid}: {question_type}' })
     try: # call handler function for each question type
         question_function(new_question, urls, qid)
     except TypeError:
         pass
-    return new_question
-
-# handler function for mc questions
-def mc_q(new_question, urls=None, qid=None):
-    new_question['Payload']['Choices']['1']['Display'] = "Yes"  # add the choices
-    new_question['Payload']['Choices']['2']['Display'] = "No"
     return new_question
 
 # handler function for ab/abc questions
@@ -118,10 +109,11 @@ def mushra_q(new_question, urls, qid):
         # set the choice logic to require that 1+ audio samples are rated == 100
         logic = new_question['Payload']['Validation']['Settings']\
                             ['CustomValidation']['Logic']['0'][f'{i}']
-        logic['QuestionID'] = f"QID{qid}"
-        logic["QuestionIDFromLocator"] = f"QID{qid}"
-        logic["ChoiceLocator"] = f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}"
-        logic["LeftOperand"] = f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}"
+        logic.update({ # update logic settings with Q & A numbers
+                    'QuestionID' : f"QID{qid}",
+                    'QuestionIDFromLocator' : f"QID{qid}",
+                    'ChoiceLocator' : f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}",
+                    'LeftOperand' : f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}"})
         # update the logic in new_question
         new_question['Payload']['Validation']['Settings']\
                     ['CustomValidation']['Logic']['0'][f'{i}'] = logic
@@ -146,26 +138,21 @@ def set_id(obj):
 def main():
     parser = argparse.ArgumentParser() # add question types
     parser.add_argument("-ab", action='store_true',
-                        help="make A/B questions "
-                        "(like preference test)")
+                        help="make A/B questions (like preference test)")
     parser.add_argument("-abc", action='store_true',
-                        help="make A/B/C questions"
-                        "(like preference test)")
+                        help="make A/B/C questions (like preference test)")
     parser.add_argument("-mc", action='store_true',
                         help="make multiple choice questions"
                         "(like error detection)")
     parser.add_argument("-trs", action='store_true',
-                        help="make transcription questions"
-                        "(with text field)")
+                        help="make transcription questions (with text field)")
     parser.add_argument("-mushra", action='store_true',
                         help="make MUSHRA questions with sliders")
 
     args = parser.parse_args()
 
     # create dictionary with questiontype:list of urls
-    url_dict = {'ab':format_urls('ab',
-                                 config.ab_file1,
-                                 config.ab_file2),
+    url_dict = {'ab':format_urls('ab', config.ab_file1, config.ab_file2),
                 'abc':format_urls('abc',
                                   config.abc_file1,
                                   config.abc_file2,
@@ -193,15 +180,23 @@ def main():
                            'trs':elements[10],
                            'abc': elements[12],
                            'mushra': elements[9]}
+
+    # update multiple choice answer text in template to save computation
+    (basis_question_dict['mc']['Payload']['Choices']
+                        ['1']['Display']) = config.mc_choice_text[0]
+    (basis_question_dict['mc']['Payload']['Choices']
+                        ['2']['Display']) = config.mc_choice_text[1]
+                        
+    # turn off answer order randomisation for MC questions (ie Yes/No)
+    # comment out these 2 lines to add randomisation
+    d = basis_question_dict['mc']['Payload']
+    basis_question_dict['mc'].update({'Payload': {i:d[i] for i in d if i!='Randomization'}})
+
+    # get basic survey components from elements JSON
     basis_blocks = elements[0]
     basis_flow = elements[1]
     rs = elements[8]
     basis_survey_count = elements[6]
-
-    #  turn off answer order randomisation for MC questions (ie Yes/No)
-    # comment out these 2 lines to add randomisation
-    d = basis_question_dict['mc']["Payload"]
-    basis_question_dict['mc'].update({"Payload": {i:d[i] for i in d if i!='Randomization'}})
 
     # store question text set in config.py, add an audio player where required
     q_text_dict = { 'ab': config.ab_question_text,
@@ -216,7 +211,7 @@ def main():
     # keys=question types and values= functions for making questions
     handler_dict = {'ab': ab_q,
                     'abc': ab_q,
-                    'mc': mc_q,
+                    'mc': None,
                     'trs': None,
                     'mushra': mushra_q}
 
@@ -228,7 +223,7 @@ def main():
     mc_counter = 0
     mushra_counter = 0
 
-    # get only args which were specified
+    # get only args which were specified on command line
     args = [key for key, value in vars(args).items() if value==True]
 
     for arg in args:
