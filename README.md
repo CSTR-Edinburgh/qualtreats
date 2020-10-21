@@ -3,8 +3,22 @@ This is a tool for automating the process of creating online listening tests in 
 # Background
 This tool reduces number of manual steps required to create a functioning test. It works by generating a JSON file which Qualtrics will interpret to  produce a survey. It was originally created for use in evaluating text-to-speech systems, but has wider applications in speech technology and other audio-related fields.
 
-
 This is not supported in any way by Qualtrics and is 100% unofficial.
+
+###### Guide contents:
+- [Functionality](#functionality)
+- [Instructions](#instructions)
+  * [Python dependencies](#python-dependencies)
+  * [Getting the script](#getting-the-script)
+  * [Configuration](#configuration)
+    + [`config.py`](#-configpy-)
+    + [Default Settings](#default-settings)
+      - [For all question types:](#for-all-question-types-)
+      - [Transcription questions:](#transcription-questions-)
+      - [MUSHRA questions:](#mushra-questions-)
+  * [Running the script](#running-the-script)
+  * [Importing to Qualtrics](#importing-to-qualtrics)
+- [Manual steps](#manual-steps)
 
 # Functionality
 
@@ -15,7 +29,7 @@ It currently supports:
 - Transcription questions (‘Listen to this audio clip and type what you hear.’)
 - MUSHRA style questions (MUltiple Stimuli with Hidden Reference and Anchor)
 
-A demo test showcasing each question type is available [here](https://edinburghinformatics.eu.qualtrics.com/jfe/form/SV_01EWlEINsQDssVD).
+See a demo test showcasing each question type [here](https://edinburghinformatics.eu.qualtrics.com/jfe/form/SV_1XkoGwG6rZC1lpr).
 
 <img src="https://raw.githubusercontent.com/evelyndjwilliams/readme-gifs/main/finished-testmaker.gif" width="500" height="370">
 
@@ -23,32 +37,47 @@ A demo test showcasing each question type is available [here](https://edinburghi
 <br>A MUSHRA test question created using the testmaker script.
 
 # Instructions
+
+The file `help.md` contains solutions to some issues we encountered while generating surveys.
+
+## Python dependencies
+
+This tool only uses packages from the Python standard library.
+
+## Getting the script
+
+Clone the <Name> GitHub repository with the command:
+
+`git clone https://github.com/jacobjwebber/qualtrics-listening-test-maker.git`
+
 ## Configuration
 
 ### `config.py`
-Before running the script, the file `config.py` should be updated to contain the correct paths for your urls, the correct text for your questions.
+
+The script expects the folder `/resources` to contain `.txt` files with lists of your audio URLs.  Some test files are included by default. The necessary file format varies between question types. Requirements for each type are detailed in `config.py`.
+
+Before running the script, the file `config.py` should be updated to contain the correct paths for your URLs, and the correct text for your questions.
 (This only applies to the question types included in your test, which you will specify using command line flags. The others won't be executed, so can remain as the default.)
 
-The required url file format depends on the question type you are generating. Requirements for each type are detailed in `config.py`.
 
 ### Default Settings
 Default question settings are determined by the template file `combined-template.JSON`. These settings include:
 
-#### For all question types:
-- Answers are presented in random order (except for multiple choice questions).
+#### For all question types
+- Answer choices are presented in random order (except for multiple choice questions).
 - Force response, so all questions must be answered before proceeding.
 
-#### Transcription questions:
+#### Transcription questions
 - Audio playback is disabled for transcription tests (so each audio clip can be played only once).
 
-#### MUSHRA questions:
+#### MUSHRA questions
 - The default HTML5 audio player is replaced by a simple play/pause button, as the hidden reference could be identified by its duration.
 - At least one sample must be rated == 100 (in line with the guidelines set out in ITU-R BS.1534-1).
 
 Changing these settings requires either editing the template file (`combined-template.JSON`) or creating a new template by creating a question in Qualtrics with the correct specifications and exporting the survey file.
 
 
-## Running the Script
+## Running the script
 
 The script is run from the command line, using flags to specify the desired question types.
 
@@ -56,10 +85,10 @@ Flags:
 - `-ab` = A/B preference
 - `-abc` = A/B/C preference
 - `-mc` = multiple choice
-- `-trs` = transcription
+- `-trs` = audio transcription
 - `-mushra` = MUSHRA
 
-The order of the flags will determine the order of the questions in the output test.
+Questions will be added to the output test in the order you supply the flags.
 
 E.g. to create a test with MUSHRA then audio transcription questions, use the command:
 
@@ -69,8 +98,11 @@ E.g. to create a test with MUSHRA then audio transcription questions, use the co
 
 <br>
 
+
 Running the script will create a .qsf (Qualtrics Survey Format) file called `output-survey.qsf`.
-This file can be imported to Qualtrics, and will be converted to a working listening test.
+
+## Importing to Qualtrics
+This file can be imported to Qualtrics (following the steps [here](https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/import-and-export-surveys/)) and will be converted to a working listening test.
 
 <img src="https://raw.githubusercontent.com/evelyndjwilliams/readme-gifs/main/import-testmaker.gif" width="420" height="330">
 

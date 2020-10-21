@@ -41,17 +41,18 @@ def format_urls(question_type, file_1, file_2=None, file_3=None):
                 # helper lambda saves some code later on "gf" means get first
                 gf = lambda x: x.split()[1]
                 if question_type == 'ab': # returns list of url pairs
-                    return [(gf(line1),gf(line2))for line1, line2 in zip(f1,f2)]
+                    return [(gf(line1),gf(line2))for line1, line2 in zip(f1,f2)], []
                 elif question_type == 'abc':
-                    with open(file_3) as f3: # returns list of url trios
+                    with open(file_3) as f3: # returns list of url trios & empty list
                         return [(gf(line1),gf(line2),gf(line3))
-                                for line1, line2, line3 in zip(f1, f2, f3)]
+                                for line1, line2, line3 in zip(f1, f2, f3)], []
         except:
             if question_type == 'mc' or question_type == 'trs':
-                names, urls = zip(*(l.split(' ', 1) for l in f1))
+                names, urls = zip(*(l.replace('\n','').split(' ', 1)  for l in f1))
                 return urls, names
             elif question_type == 'mushra': # returns test & reference url lists
-                lines = f1.readlines() # ref audio is embedded in the question
+                lines = f1.readlines()
+                # make ref audio urls to embedded in the question text
                 ref_url_list =  [os.path.join(config.mushra_root,
                                 config.mushra_ref_folder,
                                 line.replace("\n", ""))for line in lines]
@@ -70,54 +71,55 @@ def get_sentences(sentence_file):
 # make a new question using basis question and urls
 def make_question(qid, urls, basis_question,question_type,
                   question_function, question_text):
-    new_question = copy.deepcopy(basis_question)
+    new_q = copy.deepcopy(basis_question)
     # Set the survey ID
-    new_question['SurveyID'] = config.survey_id
+    new_q['SurveyID'] = config.survey_id
     # Change all the things that reflect the question ID
-    new_question['Payload'].update({'QuestionID' : f'QID{qid}',
+    new_q['Payload'].update({'QuestionID' : f'QID{qid}',
                                    'DataExportTag' : f'QID{qid}',
                                    'QuestionDescription' : f'Q{qid}:{question_type}',
                                    'QuestionText': question_text})
-    new_question.update({'PrimaryAttribute' : f'QID{qid}',
+    new_q.update({'PrimaryAttribute' : f'QID{qid}',
                         'SecondaryAttribute' : f'QID{qid}: {question_type}' })
     try: # call handler function for each question type
-        question_function(new_question, urls, qid)
+        question_function(new_q, urls, qid)
     except TypeError:
         pass
-    return new_question
+    return new_q
 
 # handler function for ab/abc questions
-def ab_q(new_question, urls, qid=None):
-    choice_template = new_question['Payload']['Choices']['1']# make choice template
+def ab_q(new_q, urls, qid=None):
+    choice_template = new_q['Payload']['Choices']['1']# make choice template
     # empty 'Choices' so flexible number can be added using Choice template
-    new_question['Payload']['Choices'] = {}
+    new_q['Payload']['Choices'] = {}
     for i, url in enumerate(urls):
         choice = copy.deepcopy(choice_template)
         choice['Display'] = get_player_html(url) # add audio player as choice
-        new_question['Payload']['Choices'][f'{i+1}'] = choice
-    return new_question
+        new_q['Payload']['Choices'][f'{i+1}'] = choice
+    return new_q
 
  # handler function for mushra questions
-def mushra_q(new_question, urls, qid):
-    choice_template = new_question['Payload']['Choices']['1']# make choice template
+def mushra_q(new_q, urls, qid):
+    choice_template = new_q['Payload']['Choices']['1']# make choice template
     # empty 'Choices' so flexible number can be added using Choice template
-    new_question['Payload']['Choices'] = {}
+    new_q['Payload']['Choices'] = {}
     for i, url in enumerate(urls):
         choice = copy.deepcopy(choice_template)
         choice['Display'] = get_play_button(url, str(i)) # add audio player as choice
-        new_question['Payload']['Choices'][f'{i+1}'] = choice
+        new_q['Payload']['Choices'][f'{i+1}'] = choice
         # set the choice logic to require that 1+ audio samples are rated == 100
-        logic = new_question['Payload']['Validation']['Settings']\
-                            ['CustomValidation']['Logic']['0'][f'{i}']
-        logic.update({ # update logic settings with Q & A numbers
+        (new_q['Payload']
+              ['Validation']
+              ['Settings']
+              ['CustomValidation']
+              ['Logic']
+              ['0']
+              [f'{i}']).update({ # update logic settings with Q & A numbers
                     'QuestionID' : f"QID{qid}",
                     'QuestionIDFromLocator' : f"QID{qid}",
                     'ChoiceLocator' : f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}",
                     'LeftOperand' : f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}"})
-        # update the logic in new_question
-        new_question['Payload']['Validation']['Settings']\
-                    ['CustomValidation']['Logic']['0'][f'{i}'] = logic
-    return new_question
+    return new_q
 
 # make n new blocks according to the survey_length
 def make_blocks(num_questions, basis_blocks):
@@ -131,6 +133,7 @@ def make_blocks(num_questions, basis_blocks):
     new_blocks['Payload'][0]['BlockElements'] = block_elements
     return new_blocks
 
+# sets the survey ID for any object which needs it
 def set_id(obj):
     obj['SurveyID'] = config.survey_id
     return obj
@@ -151,17 +154,26 @@ def main():
 
     args = parser.parse_args()
 
-    # create dictionary with questiontype:list of urls
-    url_dict = {'ab':format_urls('ab', config.ab_file1, config.ab_file2),
-                'abc':format_urls('abc',
-                                  config.abc_file1,
-                                  config.abc_file2,
-                                  config.abc_file3)}
+    # get only args which were specified on command line
+    args = [key for key, value in vars(args).items() if value==True]
 
-    # when function returns 2 url lists, store one in dict and other as variable
-    url_dict['mc'], mc_filenames = format_urls('mc', config.mc_file)
-    url_dict['trs'], trs_filenames = format_urls('trs', config.trs_file)
-    url_dict['mushra'], ref_urls = format_urls('mushra', config.mushra_files)
+    # store the arguments passed to format_urls() when executed
+    argument_dict = {'ab':[config.ab_file1, config.ab_file2],
+                     'abc':[config.abc_file1, config.abc_file2, config.abc_file3],
+                     'mc':[config.mc_file],
+                     'trs':[config.trs_file],
+                     'mushra':[config.mushra_files]
+                     }
+    # create a dictionary with key=command line arg & value= output of format_urls()
+    # function's arguments are taken from argument_dict
+
+    url_dict = {arg:format_urls(arg, *argument_dict[arg]) for arg in args}
+
+    # format_urls() returns tuple of urls & anything else that's embedded in question
+    # (for MC & trs it's the sentence text, for MUSHRA it's the reference URL)
+    # split dictionary value tuples into keyyed subdictionary
+    for key, value in url_dict.items():
+        url_dict[key] = {'urls' : value[0], 'extra':value[1]}
 
     # get sentences from file to embed in multiple choice questions
     mc_sentences = get_sentences(config.mc_sentence_file)
@@ -186,7 +198,7 @@ def main():
                         ['1']['Display']) = config.mc_choice_text[0]
     (basis_question_dict['mc']['Payload']['Choices']
                         ['2']['Display']) = config.mc_choice_text[1]
-                        
+
     # turn off answer order randomisation for MC questions (ie Yes/No)
     # comment out these 2 lines to add randomisation
     d = basis_question_dict['mc']['Payload']
@@ -223,17 +235,17 @@ def main():
     mc_counter = 0
     mushra_counter = 0
 
-    # get only args which were specified on command line
-    args = [key for key, value in vars(args).items() if value==True]
-
     for arg in args:
-        for url_set in url_dict[arg]: # for each url set for that question type
+        for url_set in url_dict[arg]['urls']: # for each url set for that question type
+            # get MUSHRA reference url if the current flag == -mushra
+            ref_url = url_dict['mushra']['extra'][mushra_counter] if arg == 'mushra' else None
+            # get MC sentence if the current flag == -mc
+            sentence = mc_sentences[url_dict['mc']['extra'][mc_counter]] if arg == 'mc' else None
             # embed required url or sentence into the question text
-            text = Template(q_text_dict[arg]).substitute(
-                                ref_url=ref_urls[mushra_counter],
-                                urls=url_set,
-                                sentence=mc_sentences[mc_filenames[mc_counter]]
-                                )
+            text = Template(q_text_dict[arg]).substitute(ref_url=ref_url,
+                                                         urls=url_set,
+                                                         sentence=sentence
+                                                         )
             # make a new question and add it to the list of questions
             questions.append(make_question(
                                 # question number (starting at 1)
@@ -251,9 +263,9 @@ def main():
             # increment these counters when a question of that type is created
             # except for the last question (to prevent IndexError)
             mc_counter += (1 if arg == 'mc' and
-                           mc_counter+1 < len(mc_filenames) else 0)
+                           mc_counter+1 < len(url_dict['mc']['urls']) else 0)
             mushra_counter += (1 if arg == 'mushra' and
-                               mushra_counter+1 < len(ref_urls) else 0)
+                               mushra_counter+1 < len(url_dict['mushra']['urls']) else 0)
 
     # survey_length is determined by number of questions created
     survey_length = len(questions)
