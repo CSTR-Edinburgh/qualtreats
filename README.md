@@ -28,8 +28,9 @@ It currently supports:
 - Multiple choice questions (‘Does this speech sample contain any errors?’)
 - Transcription questions (‘Listen to this audio clip and type what you hear.’)
 - MUSHRA style questions (MUltiple Stimuli with Hidden Reference and Anchor)
+- MOS test questions (Mean Opinion Score, with 1:5 slider scale)
 
-See a demo test showcasing each question type [here](https://edinburghinformatics.eu.qualtrics.com/jfe/form/SV_1XkoGwG6rZC1lpr).
+See a demo test showcasing each question type [here](https://edinburghinformatics.eu.qualtrics.com/jfe/form/SV_0PrKc4KQ7jDXxLn).
 
 <img src="https://raw.githubusercontent.com/evelyndjwilliams/readme-gifs/main/finished-testmaker.gif" width="500" height="370">
 
@@ -39,6 +40,7 @@ See a demo test showcasing each question type [here](https://edinburghinformatic
 # Instructions
 
 The file `help.md` contains solutions to some issues we encountered while generating surveys.
+A Wiki with more comprehensive instructions for setting up listening tests in Qualtrics is [here](https://www.wiki.ed.ac.uk/pages/viewpage.action?spaceKey=CSTR&title=Qualtrics+Listening+Tests)
 
 ## Python dependencies
 
@@ -59,6 +61,16 @@ The script expects the folder `/resources` to contain `.txt` files with lists of
 Before running the script, the file `config.py` should be updated to contain the correct paths for your URLs, and the correct text for your questions.
 (This only applies to the question types included in your test, which you will specify using command line flags. The others won't be executed, so can remain as the default.)
 
+
+### `combined-template.json`
+
+This file contains the basic building blocks for every available question type. You don't need to modify this file to run the script.
+
+ If you want to extend the script's functionality to include more question types, you should generate a new JSON template file. You can do this by manually creating a survey in Qualtrics which meets your requirements, and exporting the survey file (Tools --> Export).
+
+
+### Number of questions
+The number of questions in the survey is taken automatically from the number of filenames in your lists.
 
 ### Default Settings
 Default question settings are determined by the template file `combined-template.JSON`. These settings include:
@@ -87,6 +99,7 @@ Flags:
 - `-mc` = multiple choice
 - `-trs` = audio transcription
 - `-mushra` = MUSHRA
+- `mos` = MOS
 
 Questions will be added to the output test in the order you supply the flags.
 

@@ -47,7 +47,9 @@ def format_urls(question_type, file_1, file_2=None, file_3=None):
                         return [(gf(line1),gf(line2),gf(line3))
                                 for line1, line2, line3 in zip(f1, f2, f3)], []
         except:
-            if question_type == 'mc' or question_type == 'trs':
+            if question_type == 'mos' or question_type == 'trs':
+                return [l for l in f1], []
+            elif question_type == 'mc':
                 names, urls = zip(*(l.replace('\n','').split(' ', 1)  for l in f1))
                 return urls, names
             elif question_type == 'mushra': # returns test & reference url lists
@@ -121,6 +123,7 @@ def mushra_q(new_q, urls, qid):
                     'LeftOperand' : f"q://QID{qid}/ChoiceNumericEntryValue/{i+1}"})
     return new_q
 
+
 # make n new blocks according to the survey_length
 def make_blocks(num_questions, basis_blocks):
     new_blocks = basis_blocks
@@ -151,6 +154,8 @@ def main():
                         help="make transcription questions (with text field)")
     parser.add_argument("-mushra", action='store_true',
                         help="make MUSHRA questions with sliders")
+    parser.add_argument("-mos", action='store_true',
+                        help="make Mean Opinion Score questions with sliders")
 
     args = parser.parse_args()
 
@@ -162,7 +167,8 @@ def main():
                      'abc':[config.abc_file1, config.abc_file2, config.abc_file3],
                      'mc':[config.mc_file],
                      'trs':[config.trs_file],
-                     'mushra':[config.mushra_files]
+                     'mushra':[config.mushra_files],
+                     'mos':[config.mos_file]
                      }
     # create a dictionary with key=command line arg & value= output of format_urls()
     # function's arguments are taken from argument_dict
@@ -185,13 +191,17 @@ def main():
     # Set the survey ID in all survey_elements
     elements = list(map(set_id, elements))
 
+    for i, el in enumerate(elements):
+        print(f"----------------------------------------------{i}------------------------------------------------")
+        print(el)
     # get question template blocks from elements JSON
     # element order is survey-dependent- check if you're using a new template
-    basis_question_dict = {'ab': elements[11],
-                           'mc': elements[7],
-                           'trs':elements[10],
-                           'abc': elements[12],
-                           'mushra': elements[9]}
+    basis_question_dict = {'ab': elements[12],
+                           'mc': elements[8],
+                           'trs':elements[11],
+                           'abc': elements[13],
+                           'mushra': elements[9],
+                           'mos':elements[10]}
 
     # update multiple choice answer text in template to save computation
     (basis_question_dict['mc']['Payload']['Choices']
@@ -207,8 +217,8 @@ def main():
     # get basic survey components from elements JSON
     basis_blocks = elements[0]
     basis_flow = elements[1]
-    rs = elements[8]
-    basis_survey_count = elements[6]
+    rs = elements[2]
+    basis_survey_count = elements[7]
 
     # store question text set in config.py, add an audio player where required
     q_text_dict = { 'ab': config.ab_question_text,
@@ -218,14 +228,17 @@ def main():
                     'trs': f"{config.trs_question_text}\
                              {get_player_html('$urls')}",
                     'mushra': f"{config.mushra_question_text}\
-                                {get_play_button('$ref_url', 'ref')}"}
+                                {get_play_button('$ref_url', 'ref')}",
+                    'mos': f"{config.mos_question_text}\
+                             {get_player_html('$urls')}" }
 
     # keys=question types and values= functions for making questions
     handler_dict = {'ab': ab_q,
                     'abc': ab_q,
                     'mc': None,
                     'trs': None,
-                    'mushra': mushra_q}
+                    'mushra': mushra_q,
+                    'mos': None}
 
     # create list to store generated question blocks
     questions = []
