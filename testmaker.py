@@ -191,9 +191,7 @@ def main():
     # Set the survey ID in all survey_elements
     elements = list(map(set_id, elements))
 
-    for i, el in enumerate(elements):
-        print(f"----------------------------------------------{i}------------------------------------------------")
-        print(el)
+
     # get question template blocks from elements JSON
     # element order is survey-dependent- check if you're using a new template
     basis_question_dict = {'ab': elements[12],
