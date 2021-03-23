@@ -1,9 +1,21 @@
 <html>
 <body>
- <audio id="$player" src="$url"></audio>
-<div>
-    <button onclick="document.getElementById('$player').play()">Play</button>
-    <button onclick="document.getElementById('$player').pause()">Pause</button>
-</div>
+  <script>
+    function stopAudio(a) {
+      a.pause();
+      a.currentTime = 0;
+    }
+    function stopAllAudios() {
+      var a = document.getElementsByTagName('audio');
+      for (i = 0; i < a.length; i++) {
+        stopAudio(a[i]);
+      }
+    }
+  </script>
+  <audio id="$player" src="$url"></audio>
+  <div>
+    <button onclick="stopAllAudios(); document.getElementById('$player').play()">Play</button>
+    <button onclick="stopAudio(document.getElementById('$player'))">Stop</button>
+  </div>
 </body>
 </html>
