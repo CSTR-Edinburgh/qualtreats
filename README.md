@@ -1,4 +1,4 @@
-This is a tool for automating the process of creating online listening tests in Qualtrics.
+This is a tool for automating the process of creating online listening tests in Qualtrics. If you have any issues using it please submit here https://github.com/CSTR-Edinburgh/qualtreats/issues
 
 # Background
 This tool reduces number of manual steps required to create a functioning test. It works by generating a JSON file which Qualtrics will interpret to  produce a survey. It was originally created for use in evaluating text-to-speech systems, but has wider applications in speech technology and other audio-related fields.
