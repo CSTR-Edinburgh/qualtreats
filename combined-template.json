@@ -1,1 +1,733 @@
-{"SurveyEntry":{"SurveyID":"SV_82GxylVdVIF3r7v","SurveyName":"Combined template+MOS","SurveyDescription":null,"SurveyOwnerID":"UR_bat6mqoiSNjp68l","SurveyBrandID":"edinburghinformatics","DivisionID":null,"SurveyLanguage":"EN","SurveyActiveResponseSet":"RS_6MeAvL2aPM8PFI1","SurveyStatus":"Inactive","SurveyStartDate":"0000-00-00 00:00:00","SurveyExpirationDate":"0000-00-00 00:00:00","SurveyCreationDate":"2020-11-18 07:31:08","CreatorID":"UR_bat6mqoiSNjp68l","LastModified":"2021-03-19 12:47:22","LastAccessed":"0000-00-00 00:00:00","LastActivated":"0000-00-00 00:00:00","Deleted":null},"SurveyElements":[{"SurveyID":"SV_82GxylVdVIF3r7v","Element":"BL","PrimaryAttribute":"Survey Blocks","SecondaryAttribute":null,"TertiaryAttribute":null,"Payload":[{"Type":"Default","Description":"Default Question Block","ID":"BL_1MNtN4HBD9iSUXX","BlockElements":[{"Type":"Question","QuestionID":"QID1"},{"Type":"Question","QuestionID":"QID2"},{"Type":"Question","QuestionID":"QID3"},{"Type":"Question","QuestionID":"QID4"},{"Type":"Question","QuestionID":"QID5"},{"Type":"Question","QuestionID":"QID10"}]},{"Type":"Trash","Description":"Trash \/ Unused Questions","ID":"BL_b9JrFiAUwvf53RH","BlockElements":[]}]},{"SurveyID":"SV_82GxylVdVIF3r7v","Element":"FL","PrimaryAttribute":"Survey Flow","SecondaryAttribute":null,"TertiaryAttribute":null,"Payload":{"Flow":[{"ID":"BL_1MNtN4HBD9iSUXX","Type":"Block","FlowID":"FL_2"}],"Properties":{"Count":3},"FlowID":"FL_1","Type":"Root"}},{"SurveyID":"SV_82GxylVdVIF3r7v","Element":"RS","PrimaryAttribute":"RS_6MeAvL2aPM8PFI1","SecondaryAttribute":null,"TertiaryAttribute":null,"Payload":null},{"SurveyID":"SV_82GxylVdVIF3r7v","Element":"SO","PrimaryAttribute":"Survey Options","SecondaryAttribute":null,"TertiaryAttribute":null,"Payload":{"BackButton":"false","SaveAndContinue":"true","SurveyProtection":"PublicSurvey","BallotBoxStuffingPrevention":"false","NoIndex":"Yes","SecureResponseFiles":"true","SurveyExpiration":"None","SurveyTermination":"DefaultMessage","Header":"","Footer":"","ProgressBarDisplay":"None","PartialData":"+1 week","ValidationMessage":"","PreviousButton":" \u2190 ","NextButton":" \u2192 ","SurveyTitle":"Online Survey Software | Qualtrics Survey Solutions","SkinLibrary":"edinburghinformatics","SkinType":"templated","Skin":{"brandingId":null,"templateId":"*2014","overrides":null},"NewScoring":1,"SurveyName":"Combined template+MOS"}},{"SurveyID":"SV_82GxylVdVIF3r7v","Element":"SCO","PrimaryAttribute":"Scoring","SecondaryAttribute":null,"TertiaryAttribute":null,"Payload":{"ScoringCategories":[],"ScoringCategoryGroups":[],"ScoringSummaryCategory":null,"ScoringSummaryAfterQuestions":0,"ScoringSummaryAfterSurvey":0,"DefaultScoringCategory":null,"AutoScoringCategory":null}},{"SurveyID":"SV_82GxylVdVIF3r7v","Element":"PROJ","PrimaryAttribute":"CORE","SecondaryAttribute":null,"TertiaryAttribute":"1.1.0","Payload":{"ProjectCategory":"CORE","SchemaVersion":"1.1.0"}},{"SurveyID":"SV_82GxylVdVIF3r7v","Element":"STAT","PrimaryAttribute":"Survey Statistics","SecondaryAttribute":null,"TertiaryAttribute":null,"Payload":{"MobileCompatible":false,"ID":"Survey Statistics"}},{"SurveyID":"SV_82GxylVdVIF3r7v","Element":"QC","PrimaryAttribute":"Survey Question Count","SecondaryAttribute":"10","TertiaryAttribute":null,"Payload":null},{"SurveyID":"SV_82GxylVdVIF3r7v","Element":"SQ","PrimaryAttribute":"QID2","SecondaryAttribute":"Are there any errors? Sentence:","TertiaryAttribute":null,"Payload":{"QuestionText":"Are there any errors? Sentence:","DataExportTag":"Q2","QuestionType":"MC","Selector":"SAVR","SubSelector":"TX","Configuration":{"QuestionDescriptionOption":"UseText"},"QuestionDescription":"Are there any errors? Sentence:","Choices":{"1":{"Display":"Yes"},"2":{"Display":"No"}},"ChoiceOrder":[1,2],"Validation":{"Settings":{"ForceResponse":"ON","ForceResponseType":"ON","Type":"None"}},"Language":[],"NextChoiceId":3,"NextAnswerId":1,"QuestionID":"QID2"}},{"SurveyID":"SV_82GxylVdVIF3r7v","Element":"SQ","PrimaryAttribute":"QID5","SecondaryAttribute":"How natural are the following speech recordings? Reference: Play Pause","TertiaryAttribute":null,"Payload":{"QuestionText":"How natural are the following speech recordings? <br> Reference: <html>\n<body>\n <audio id=\"ref\" src=\"http:\/\/groups.inf.ed.ac.uk\/cstr3\/cvbotinh\/SM\/RQ4\/SystemComparison\/test1\/wavs\/vocoded\/CB-EM-02-53.wav\"><\/audio>\n<div>\n    <button onclick=\"document.getElementById('ref').play()\">Play<\/button>\n    <button onclick=\"document.getElementById('ref').pause()\">Pause<\/button>\n<\/div>\n<\/body>\n<\/html>\n ","QuestionJS":"Qualtrics.SurveyEngine.addOnload(function()\n{\n\t\/*Place your JavaScript here to run when the page loads*\/\n\tjQuery(\"td\").css(\"border-left\",\"2px solid WhiteSmoke\");\n});\n\nQualtrics.SurveyEngine.addOnReady(function()\n{\n\t\/*Place your JavaScript here to run when the page is fully displayed*\/\n\n});\n\nQualtrics.SurveyEngine.addOnUnload(function()\n{\n\t\/*Place your JavaScript here to run when the page is unloaded*\/\n\n});","DefaultChoices":false,"DataExportTag":"Q6","QuestionType":"Slider","Selector":"HSLIDER","DataVisibility":{"Private":false,"Hidden":false},"Configuration":{"QuestionDescriptionOption":"UseText","CSSliderMin":0,"CSSliderMax":100,"GridLines":10,"SnapToGrid":false,"NumDecimals":"0","ShowValue":true,"CustomStart":true,"SliderStartPositions":{"1":0,"2":0,"3":0,"4":0,"5":0},"NotApplicable":false,"CenterLabels":true,"MobileFirst":false},"QuestionDescription":"How natural are the following speech recordings? Reference: Play Pause","Choices":{"1":{"Display":"<html>\n<body>\n <audio id=\"0\" src=\"http:\/\/groups.inf.ed.ac.uk\/cstr3\/cvbotinh\/SM\/RQ4\/SystemComparison\/test1\/wavs\/1book\/CB-EM-02-53.wav\"><\/audio>\n<div>\n    <button onclick=\"document.getElementById('0').play()\">Play<\/button>\n    <button onclick=\"document.getElementById('0').pause()\">Pause<\/button>\n<\/div>\n<\/body>\n<\/html>\n"},"2":{"Display":"<html>\n<body>\n <audio id=\"1\" src=\"http:\/\/groups.inf.ed.ac.uk\/cstr3\/cvbotinh\/SM\/RQ4\/SystemComparison\/test1\/wavs\/2books\/CB-EM-02-53.wav\"><\/audio>\n<div>\n    <button onclick=\"document.getElementById('1').play()\">Play<\/button>\n    <button onclick=\"document.getElementById('1').pause()\">Pause<\/button>\n<\/div>\n<\/body>\n<\/html>\n"},"3":{"Display":"<html>\n<body>\n <audio id=\"2\" src=\"http:\/\/groups.inf.ed.ac.uk\/cstr3\/cvbotinh\/SM\/RQ4\/SystemComparison\/test1\/wavs\/4books\/CB-EM-02-53.wav\"><\/audio>\n<div>\n    <button onclick=\"document.getElementById('2').play()\">Play<\/button>\n    <button onclick=\"document.getElementById('2').pause()\">Pause<\/button>\n<\/div>\n<\/body>\n<\/html>\n"},"4":{"Display":"<html>\n<body>\n <audio id=\"3\" src=\"http:\/\/groups.inf.ed.ac.uk\/cstr3\/cvbotinh\/SM\/RQ4\/SystemComparison\/test1\/wavs\/vocoded\/CB-EM-02-53.wav\"><\/audio>\n<div>\n    <button onclick=\"document.getElementById('3').play()\">Play<\/button>\n    <button onclick=\"document.getElementById('3').pause()\">Pause<\/button>\n<\/div>\n<\/body>\n<\/html>\n"},"5":{"Display":"<html>\n<body>\n <audio id=\"4\" src=\"http:\/\/groups.inf.ed.ac.uk\/cstr3\/cvbotinh\/SM\/RQ4\/SystemComparison\/test1\/wavs\/SR\/CB-EM-02-53.wav\"><\/audio>\n<div>\n    <button onclick=\"document.getElementById('4').play()\">Play<\/button>\n    <button onclick=\"document.getElementById('4').pause()\">Pause<\/button>\n<\/div>\n<\/body>\n<\/html>\n"},"6":{"Display":"Click to write Choice 6"},"7":{"Display":"Click to write Choice 7"},"8":{"Display":"Click to write Choice 8"},"9":{"Display":"Click to write Choice 9"},"10":{"Display":"Click to write Choice 10"},"11":{"Display":"Click to write Choice 11"},"12":{"Display":"Click to write Choice 12"},"13":{"Display":"Click to write Choice 13"},"14":{"Display":"Click to write Choice 14"},"15":{"Display":"Click to write Choice 15"},"16":{"Display":"Click to write Choice 16"},"17":{"Display":"Click to write Choice 17"},"18":{"Display":"Click to write Choice 18"},"19":{"Display":"Click to write Choice 19"},"20":{"Display":"Click to write Choice 20"}},"ChoiceOrder":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],"Randomization":{"Advanced":null,"TotalRandSubset":"","Type":"All"},"Validation":{"Settings":{"ForceResponse":"ON","ForceResponseType":"ON","Type":"CustomValidation","CustomValidation":{"Logic":{"0":{"0":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/1","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/1","RightOperand":"100","IgnoreCase":1,"Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">If<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">&lt;html&gt;\n&lt;body&gt;\n &lt;audio id=\"0\" src=\"http:\/\/groups.inf.ed.ac.uk\/cstr3\/cvbotinh\/SM\/RQ4\/SystemComparison\/test1\/wavs\/1book\/CB-EM-02-53.wav\"&gt;&lt;\/audio&gt;\n&lt;div&gt;\n    &lt;button onclick=\"document.getElementById('0').play()\"&gt;Play&lt;\/button&gt;\n    &lt;button onclick=\"document.getElementById('0').pause()\"&gt;Pause&lt;\/button&gt;\n&lt;\/div&gt;\n&lt;\/body&gt;\n&lt;\/html&gt;\n<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>"},"1":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/2","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/2","RightOperand":"100","IgnoreCase":1,"Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">&lt;html&gt;\n&lt;body&gt;\n &lt;audio id=\"1\" src=\"http:\/\/groups.inf.ed.ac.uk\/cstr3\/cvbotinh\/SM\/RQ4\/SystemComparison\/test1\/wavs\/2books\/CB-EM-02-53.wav\"&gt;&lt;\/audio&gt;\n&lt;div&gt;\n    &lt;button onclick=\"document.getElementById('1').play()\"&gt;Play&lt;\/button&gt;\n    &lt;button onclick=\"document.getElementById('1').pause()\"&gt;Pause&lt;\/button&gt;\n&lt;\/div&gt;\n&lt;\/body&gt;\n&lt;\/html&gt;\n<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"2":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/3","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/3","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">&lt;html&gt;\n&lt;body&gt;\n &lt;audio id=\"2\" src=\"http:\/\/groups.inf.ed.ac.uk\/cstr3\/cvbotinh\/SM\/RQ4\/SystemComparison\/test1\/wavs\/4books\/CB-EM-02-53.wav\"&gt;&lt;\/audio&gt;\n&lt;div&gt;\n    &lt;button onclick=\"document.getElementById('2').play()\"&gt;Play&lt;\/button&gt;\n    &lt;button onclick=\"document.getElementById('2').pause()\"&gt;Pause&lt;\/button&gt;\n&lt;\/div&gt;\n&lt;\/body&gt;\n&lt;\/html&gt;\n<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"3":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/4","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/4","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">&lt;html&gt;\n&lt;body&gt;\n &lt;audio id=\"3\" src=\"http:\/\/groups.inf.ed.ac.uk\/cstr3\/cvbotinh\/SM\/RQ4\/SystemComparison\/test1\/wavs\/vocoded\/CB-EM-02-53.wav\"&gt;&lt;\/audio&gt;\n&lt;div&gt;\n    &lt;button onclick=\"document.getElementById('3').play()\"&gt;Play&lt;\/button&gt;\n    &lt;button onclick=\"document.getElementById('3').pause()\"&gt;Pause&lt;\/button&gt;\n&lt;\/div&gt;\n&lt;\/body&gt;\n&lt;\/html&gt;\n<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"4":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/5","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/5","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">&lt;html&gt;\n&lt;body&gt;\n &lt;audio id=\"4\" src=\"http:\/\/groups.inf.ed.ac.uk\/cstr3\/cvbotinh\/SM\/RQ4\/SystemComparison\/test1\/wavs\/SR\/CB-EM-02-53.wav\"&gt;&lt;\/audio&gt;\n&lt;div&gt;\n    &lt;button onclick=\"document.getElementById('4').play()\"&gt;Play&lt;\/button&gt;\n    &lt;button onclick=\"document.getElementById('4').pause()\"&gt;Pause&lt;\/button&gt;\n&lt;\/div&gt;\n&lt;\/body&gt;\n&lt;\/html&gt;\n<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"5":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/6","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/6","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">Click to write Choice 6<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"6":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/7","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/7","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">Click to write Choice 7<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"7":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/8","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/8","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">Click to write Choice 8<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"8":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/9","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/9","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">Click to write Choice 9<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"9":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/10","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/10","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">Click to write Choice 10<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"10":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/11","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/11","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">Click to write Choice 11<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"11":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/12","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/12","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">Click to write Choice 12<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"12":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/13","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/13","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">Click to write Choice 13<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"13":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/14","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/14","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">Click to write Choice 14<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"14":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/15","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/15","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">Click to write Choice 15<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"15":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/16","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/16","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">Click to write Choice 16<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"16":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/17","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/17","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">Click to write Choice 17<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"17":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/18","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/18","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">Click to write Choice 18<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"18":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/19","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/19","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">Click to write Choice 19<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"19":{"QuestionID":"QID5","QuestionIsInLoop":"no","ChoiceLocator":"q:\/\/QID5\/ChoiceNumericEntryValue\/20","Operator":"NotEqualTo","QuestionIDFromLocator":"QID5","LeftOperand":"q:\/\/QID5\/ChoiceNumericEntryValue\/20","RightOperand":"100","Type":"Expression","LogicType":"Question","Description":"<span class=\"ConjDesc\">And<\/span> <span class=\"QuestionDesc\">How natural are the following speech recordings? Reference: Play Pause<\/span> <span class=\"LeftOpDesc\">Click to write Choice 20<\/span> <span class=\"OpDesc\">Is Not Equal to<\/span> <span class=\"RightOpDesc\"> 100 <\/span>","Conjuction":"And"},"Type":"If"},"Type":"BooleanExpression"},"Message":{"messageID":"MS_5uuuakdI0uGd069","subMessageID":"VE_CUSTOM_VALIDATION_0","libraryID":"UR_bat6mqoiSNjp68l","description":"No 100 Rating"}}}},"GradingData":[],"Language":[],"NextChoiceId":21,"NextAnswerId":6,"Labels":{"1":{"Display":"Bad"},"2":{"Display":"Poor"},"3":{"Display":"Fair"},"4":{"Display":"Good"},"5":{"Display":"Excellent"}},"QuestionID":"QID5"}},{"SurveyID":"SV_82GxylVdVIF3r7v","Element":"SQ","PrimaryAttribute":"QID10","SecondaryAttribute":"How natural is this speech recording?\u00a0","TertiaryAttribute":null,"Payload":{"QuestionText":"How natural is this speech recording?&nbsp;\n<audio class=\"qmedia\" controls=\"true\" height=\"40\" preload=\"auto\" width=\"320\"><source src=\"https:\/\/edinburghinformatics.eu.qualtrics.com\/CP\/File.php?F=F_7WFS5oExNkJPgtD\" type=\"audio\/wav\" \/><embed class=\"qmedia\" flashconsts=\"file=https:\/\/edinburghinformatics.eu.qualtrics.com\/CP\/File.php?F=F_7WFS5oExNkJPgtD&amp;width=320&amp;height=20&amp;type=wav&amp;autostart=false\" height=\"20\" pluginspage=\"http:\/\/adobe.com\/flashplayer\/\" src=\"\/WRQualtricsShared\/Flash\/flvplayer.swf\" type=\"application\/x-shockwave-flash\" width=\"320\" wmode=\"transparent\" \/><\/audio>","QuestionJS":"Qualtrics.SurveyEngine.addOnload(function()\n{\n\t\/*Place your JavaScript here to run when the page loads*\/\n\njQuery(\"td\").css(\"border-left\",\"2px solid WhiteSmoke\");\n});\n\nQualtrics.SurveyEngine.addOnReady(function()\n{\n\t\/*Place your JavaScript here to run when the page is fully displayed*\/\n\n});\n\nQualtrics.SurveyEngine.addOnUnload(function()\n{\n\t\/*Place your JavaScript here to run when the page is unloaded*\/\n\n});","DefaultChoices":false,"DataExportTag":"Q11","QuestionType":"Slider","Selector":"HSLIDER","DataVisibility":{"Private":false,"Hidden":false},"Configuration":{"QuestionDescriptionOption":"UseText","CSSliderMin":1,"CSSliderMax":5,"GridLines":4,"SnapToGrid":true,"NumDecimals":"0","ShowValue":true,"CustomStart":true,"SliderStartPositions":{"1":0.5},"NotApplicable":false,"CenterLabels":true,"MobileFirst":false},"QuestionDescription":"How natural is this speech recording?\u00a0","Choices":{"1":{"Display":""}},"ChoiceOrder":[1],"Validation":{"Settings":{"ForceResponse":"ON","ForceResponseType":"ON","Type":"None"}},"GradingData":[],"Language":[],"NextChoiceId":2,"NextAnswerId":8,"Labels":{"1":{"Display":"Bad"},"2":{"Display":"Poor"},"3":{"Display":"Fair"},"4":{"Display":"Good"},"5":{"Display":"Excellent"}},"Answers":{"1":{"Display":1},"2":{"Display":2},"3":{"Display":3},"4":{"Display":4},"5":{"Display":5}},"QuestionID":"QID10"}},{"SurveyID":"SV_82GxylVdVIF3r7v","Element":"SQ","PrimaryAttribute":"QID3","SecondaryAttribute":"Please transcribe this speech sample.","TertiaryAttribute":null,"Payload":{"QuestionText":"Please transcribe this speech sample.","DefaultChoices":false,"DataExportTag":"Q3","QuestionType":"TE","Selector":"SL","Configuration":{"QuestionDescriptionOption":"UseText"},"QuestionDescription":"Please transcribe this speech sample.","Validation":{"Settings":{"ForceResponse":"ON","ForceResponseType":"ON","Type":"None"}},"GradingData":[],"Language":[],"NextChoiceId":4,"NextAnswerId":1,"SearchSource":{"AllowFreeResponse":"false"},"QuestionID":"QID3"}},{"SurveyID":"SV_82GxylVdVIF3r7v","Element":"SQ","PrimaryAttribute":"QID1","SecondaryAttribute":"which sample sounds the most natural?","TertiaryAttribute":null,"Payload":{"QuestionText":"which sample sounds the most natural?","DataExportTag":"Q1","QuestionType":"MC","Selector":"SAVR","SubSelector":"TX","Configuration":{"QuestionDescriptionOption":"UseText"},"QuestionDescription":"which sample sounds the most natural?","Choices":{"1":{"Display":"sample 1"},"2":{"Display":"sample 2"}},"ChoiceOrder":[1,2],"Validation":{"Settings":{"ForceResponse":"ON","ForceResponseType":"ON","Type":"None"}},"Language":[],"NextChoiceId":3,"NextAnswerId":1,"QuestionID":"QID1","Randomization":{"Advanced":null,"Type":"All","TotalRandSubset":""}}},{"SurveyID":"SV_82GxylVdVIF3r7v","Element":"SQ","PrimaryAttribute":"QID4","SecondaryAttribute":"Which sample sounds the most natural?","TertiaryAttribute":null,"Payload":{"QuestionText":"Which sample sounds the most natural?","DataExportTag":"Q4","QuestionType":"MC","Selector":"SAVR","SubSelector":"TX","Configuration":{"QuestionDescriptionOption":"UseText"},"QuestionDescription":"Which sample sounds the most natural?","Choices":{"1":{"Display":"sample 1"},"2":{"Display":"sample2"},"3":{"Display":"sample3"}},"ChoiceOrder":[1,2,3],"Validation":{"Settings":{"ForceResponse":"ON","ForceResponseType":"ON","Type":"None"}},"Language":[],"NextChoiceId":4,"NextAnswerId":1,"QuestionID":"QID4","Randomization":{"Advanced":null,"Type":"All","TotalRandSubset":""}}}]}
+{
+  "SurveyEntry": {
+    "SurveyID": "SV_82GxylVdVIF3r7v",
+    "SurveyName": "Combined template+MOS",
+    "SurveyDescription": null,
+    "SurveyOwnerID": "UR_bat6mqoiSNjp68l",
+    "SurveyBrandID": "edinburghinformatics",
+    "DivisionID": null,
+    "SurveyLanguage": "EN",
+    "SurveyActiveResponseSet": "RS_6MeAvL2aPM8PFI1",
+    "SurveyStatus": "Inactive",
+    "SurveyStartDate": "0000-00-00 00:00:00",
+    "SurveyExpirationDate": "0000-00-00 00:00:00",
+    "SurveyCreationDate": "2020-11-18 07:31:08",
+    "CreatorID": "UR_bat6mqoiSNjp68l",
+    "LastModified": "2021-03-24 10:19:02",
+    "LastAccessed": "0000-00-00 00:00:00",
+    "LastActivated": "0000-00-00 00:00:00",
+    "Deleted": null
+  },
+  "SurveyElements": [
+    {
+      "SurveyID": "SV_82GxylVdVIF3r7v",
+      "Element": "BL",
+      "PrimaryAttribute": "Survey Blocks",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": [
+        {
+          "Type": "Default",
+          "Description": "Default Question Block",
+          "ID": "BL_1MNtN4HBD9iSUXX",
+          "BlockElements": [
+            {
+              "Type": "Question",
+              "QuestionID": "QID1"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID2"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID3"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID4"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID5"
+            },
+            {
+              "Type": "Question",
+              "QuestionID": "QID10"
+            }
+          ]
+        },
+        {
+          "Type": "Trash",
+          "Description": "Trash / Unused Questions",
+          "ID": "BL_b9JrFiAUwvf53RH",
+          "BlockElements": []
+        }
+      ]
+    },
+    {
+      "SurveyID": "SV_82GxylVdVIF3r7v",
+      "Element": "FL",
+      "PrimaryAttribute": "Survey Flow",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "Flow": [
+          {
+            "ID": "BL_1MNtN4HBD9iSUXX",
+            "Type": "Block",
+            "FlowID": "FL_2"
+          }
+        ],
+        "Properties": {
+          "Count": 3
+        },
+        "FlowID": "FL_1",
+        "Type": "Root"
+      }
+    },
+    {
+      "SurveyID": "SV_82GxylVdVIF3r7v",
+      "Element": "RS",
+      "PrimaryAttribute": "RS_6MeAvL2aPM8PFI1",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": null
+    },
+    {
+      "SurveyID": "SV_82GxylVdVIF3r7v",
+      "Element": "SO",
+      "PrimaryAttribute": "Survey Options",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "BackButton": "false",
+        "SaveAndContinue": "true",
+        "SurveyProtection": "PublicSurvey",
+        "BallotBoxStuffingPrevention": "false",
+        "NoIndex": "Yes",
+        "SecureResponseFiles": "true",
+        "SurveyExpiration": "None",
+        "SurveyTermination": "DefaultMessage",
+        "Header": "",
+        "Footer": "",
+        "ProgressBarDisplay": "None",
+        "PartialData": "+1 week",
+        "ValidationMessage": "",
+        "PreviousButton": " ← ",
+        "NextButton": " → ",
+        "SurveyTitle": "Online Survey Software | Qualtrics Survey Solutions",
+        "SkinLibrary": "edinburghinformatics",
+        "SkinType": "templated",
+        "Skin": {
+          "brandingId": null,
+          "templateId": "*2014",
+          "overrides": null
+        },
+        "NewScoring": 1,
+        "SurveyName": "Combined template+MOS"
+      }
+    },
+    {
+      "SurveyID": "SV_82GxylVdVIF3r7v",
+      "Element": "SCO",
+      "PrimaryAttribute": "Scoring",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "ScoringCategories": [],
+        "ScoringCategoryGroups": [],
+        "ScoringSummaryCategory": null,
+        "ScoringSummaryAfterQuestions": 0,
+        "ScoringSummaryAfterSurvey": 0,
+        "DefaultScoringCategory": null,
+        "AutoScoringCategory": null
+      }
+    },
+    {
+      "SurveyID": "SV_82GxylVdVIF3r7v",
+      "Element": "PROJ",
+      "PrimaryAttribute": "CORE",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": "1.1.0",
+      "Payload": {
+        "ProjectCategory": "CORE",
+        "SchemaVersion": "1.1.0"
+      }
+    },
+    {
+      "SurveyID": "SV_82GxylVdVIF3r7v",
+      "Element": "STAT",
+      "PrimaryAttribute": "Survey Statistics",
+      "SecondaryAttribute": null,
+      "TertiaryAttribute": null,
+      "Payload": {
+        "MobileCompatible": false,
+        "ID": "Survey Statistics"
+      }
+    },
+    {
+      "SurveyID": "SV_82GxylVdVIF3r7v",
+      "Element": "QC",
+      "PrimaryAttribute": "Survey Question Count",
+      "SecondaryAttribute": "10",
+      "TertiaryAttribute": null,
+      "Payload": null
+    },
+    {
+      "SurveyID": "SV_82GxylVdVIF3r7v",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID2",
+      "SecondaryAttribute": "Are there any errors? Sentence:",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Are there any errors? Sentence:",
+        "DataExportTag": "Q2",
+        "QuestionType": "MC",
+        "Selector": "SAVR",
+        "SubSelector": "TX",
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "QuestionDescription": "Are there any errors? Sentence:",
+        "Choices": {
+          "1": {
+            "Display": "Yes"
+          },
+          "2": {
+            "Display": "No"
+          }
+        },
+        "ChoiceOrder": [
+          1,
+          2
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "ON",
+            "ForceResponseType": "ON",
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "NextChoiceId": 3,
+        "NextAnswerId": 1,
+        "QuestionID": "QID2"
+      }
+    },
+    {
+      "SurveyID": "SV_82GxylVdVIF3r7v",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID5",
+      "SecondaryAttribute": "How natural are the following speech recordings? Reference: Play Pause",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "How natural are the following speech recordings? <br> Reference: <html>\n<body>\n <audio id=\"ref\" src=\"http://groups.inf.ed.ac.uk/cstr3/cvbotinh/SM/RQ4/SystemComparison/test1/wavs/vocoded/CB-EM-02-53.wav\"></audio>\n<div>\n    <button onclick=\"document.getElementById('ref').play()\">Play</button>\n    <button onclick=\"document.getElementById('ref').pause()\">Pause</button>\n</div>\n</body>\n</html>\n ",
+        "QuestionJS": "Qualtrics.SurveyEngine.addOnload(function()\n{\n\t/*Place your JavaScript here to run when the page loads*/\n\tjQuery(\"td\").css(\"border-left\",\"2px solid WhiteSmoke\");\n});\n\nQualtrics.SurveyEngine.addOnReady(function()\n{\n\t/*Place your JavaScript here to run when the page is fully displayed*/\n\n});\n\nQualtrics.SurveyEngine.addOnUnload(function()\n{\n\t/*Place your JavaScript here to run when the page is unloaded*/\n\n});",
+        "DefaultChoices": false,
+        "DataExportTag": "Q6",
+        "QuestionType": "Slider",
+        "Selector": "HSLIDER",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText",
+          "CSSliderMin": 0,
+          "CSSliderMax": 100,
+          "GridLines": 10,
+          "SnapToGrid": false,
+          "NumDecimals": "0",
+          "ShowValue": true,
+          "CustomStart": true,
+          "SliderStartPositions": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "NotApplicable": false,
+          "CenterLabels": true,
+          "MobileFirst": false
+        },
+        "QuestionDescription": "How natural are the following speech recordings? Reference: Play Pause",
+        "Choices": {
+          "1": {
+            "Display": "<html>\n<body>\n <audio id=\"0\" src=\"http://groups.inf.ed.ac.uk/cstr3/cvbotinh/SM/RQ4/SystemComparison/test1/wavs/1book/CB-EM-02-53.wav\"></audio>\n<div>\n    <button onclick=\"document.getElementById('0').play()\">Play</button>\n    <button onclick=\"document.getElementById('0').pause()\">Pause</button>\n</div>\n</body>\n</html>\n"
+          },
+          "2": {
+            "Display": "<html>\n<body>\n <audio id=\"1\" src=\"http://groups.inf.ed.ac.uk/cstr3/cvbotinh/SM/RQ4/SystemComparison/test1/wavs/2books/CB-EM-02-53.wav\"></audio>\n<div>\n    <button onclick=\"document.getElementById('1').play()\">Play</button>\n    <button onclick=\"document.getElementById('1').pause()\">Pause</button>\n</div>\n</body>\n</html>\n"
+          },
+          "3": {
+            "Display": "<html>\n<body>\n <audio id=\"2\" src=\"http://groups.inf.ed.ac.uk/cstr3/cvbotinh/SM/RQ4/SystemComparison/test1/wavs/4books/CB-EM-02-53.wav\"></audio>\n<div>\n    <button onclick=\"document.getElementById('2').play()\">Play</button>\n    <button onclick=\"document.getElementById('2').pause()\">Pause</button>\n</div>\n</body>\n</html>\n"
+          },
+          "4": {
+            "Display": "<html>\n<body>\n <audio id=\"3\" src=\"http://groups.inf.ed.ac.uk/cstr3/cvbotinh/SM/RQ4/SystemComparison/test1/wavs/vocoded/CB-EM-02-53.wav\"></audio>\n<div>\n    <button onclick=\"document.getElementById('3').play()\">Play</button>\n    <button onclick=\"document.getElementById('3').pause()\">Pause</button>\n</div>\n</body>\n</html>\n"
+          },
+          "5": {
+            "Display": "<html>\n<body>\n <audio id=\"4\" src=\"http://groups.inf.ed.ac.uk/cstr3/cvbotinh/SM/RQ4/SystemComparison/test1/wavs/SR/CB-EM-02-53.wav\"></audio>\n<div>\n    <button onclick=\"document.getElementById('4').play()\">Play</button>\n    <button onclick=\"document.getElementById('4').pause()\">Pause</button>\n</div>\n</body>\n</html>\n"
+          },
+          "6": {
+            "Display": "Click to write Choice 6"
+          },
+          "7": {
+            "Display": "Click to write Choice 7"
+          },
+          "8": {
+            "Display": "Click to write Choice 8"
+          },
+          "9": {
+            "Display": "Click to write Choice 9"
+          },
+          "10": {
+            "Display": "Click to write Choice 10"
+          },
+          "11": {
+            "Display": "Click to write Choice 11"
+          },
+          "12": {
+            "Display": "Click to write Choice 12"
+          }
+        },
+        "ChoiceOrder": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "Randomization": {
+          "Advanced": null,
+          "TotalRandSubset": "",
+          "Type": "All"
+        },
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "ON",
+            "ForceResponseType": "ON",
+            "Type": "CustomValidation",
+            "CustomValidation": {
+              "Logic": {
+                "0": {
+                  "0": {
+                    "QuestionID": "QID5",
+                    "QuestionIsInLoop": "no",
+                    "ChoiceLocator": "q://QID5/ChoiceNumericEntryValue/1",
+                    "Operator": "EqualTo",
+                    "QuestionIDFromLocator": "QID5",
+                    "LeftOperand": "q://QID5/ChoiceNumericEntryValue/1",
+                    "RightOperand": "100",
+                    "Type": "Expression",
+                    "LogicType": "Question",
+                    "Description": "<span class=\"ConjDesc\">If</span> <span class=\"QuestionDesc\"></span> <span class=\"LeftOpDesc\">&lt;html&gt;\n&lt;body&gt;\n &lt;audio id=\"0\" src=\"http://groups.inf.ed.ac.uk/cstr3/cvbotinh/SM/RQ4/SystemComparison/test1/wavs/1book/CB-EM-02-53.wav\"&gt;&lt;/audio&gt;\n&lt;div&gt;\n    &lt;button onclick=\"document.getElementById('0').play()\"&gt;Play&lt;/button&gt;\n    &lt;button onclick=\"document.getElementById('0').pause()\"&gt;Pause&lt;/button&gt;\n&lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> 100 </span>"
+                  },
+                  "1": {
+                    "QuestionID": "QID5",
+                    "QuestionIsInLoop": "no",
+                    "ChoiceLocator": "q://QID5/ChoiceNumericEntryValue/2",
+                    "Operator": "EqualTo",
+                    "QuestionIDFromLocator": "QID5",
+                    "LeftOperand": "q://QID5/ChoiceNumericEntryValue/2",
+                    "RightOperand": "100",
+                    "Type": "Expression",
+                    "LogicType": "Question",
+                    "Description": "<span class=\"ConjDesc\">Or</span> <span class=\"QuestionDesc\"></span> <span class=\"LeftOpDesc\">&lt;html&gt;\n&lt;body&gt;\n &lt;audio id=\"1\" src=\"http://groups.inf.ed.ac.uk/cstr3/cvbotinh/SM/RQ4/SystemComparison/test1/wavs/2books/CB-EM-02-53.wav\"&gt;&lt;/audio&gt;\n&lt;div&gt;\n    &lt;button onclick=\"document.getElementById('1').play()\"&gt;Play&lt;/button&gt;\n    &lt;button onclick=\"document.getElementById('1').pause()\"&gt;Pause&lt;/button&gt;\n&lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> 100 </span>",
+                    "Conjuction": "Or"
+                  },
+                  "2": {
+                    "QuestionID": "QID5",
+                    "QuestionIsInLoop": "no",
+                    "ChoiceLocator": "q://QID5/ChoiceNumericEntryValue/3",
+                    "Operator": "EqualTo",
+                    "QuestionIDFromLocator": "QID5",
+                    "LeftOperand": "q://QID5/ChoiceNumericEntryValue/3",
+                    "RightOperand": "100",
+                    "Type": "Expression",
+                    "LogicType": "Question",
+                    "Description": "<span class=\"ConjDesc\">Or</span> <span class=\"QuestionDesc\"></span> <span class=\"LeftOpDesc\">&lt;html&gt;\n&lt;body&gt;\n &lt;audio id=\"2\" src=\"http://groups.inf.ed.ac.uk/cstr3/cvbotinh/SM/RQ4/SystemComparison/test1/wavs/4books/CB-EM-02-53.wav\"&gt;&lt;/audio&gt;\n&lt;div&gt;\n    &lt;button onclick=\"document.getElementById('2').play()\"&gt;Play&lt;/button&gt;\n    &lt;button onclick=\"document.getElementById('2').pause()\"&gt;Pause&lt;/button&gt;\n&lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> 100 </span>",
+                    "Conjuction": "Or"
+                  },
+                  "3": {
+                    "QuestionID": "QID5",
+                    "QuestionIsInLoop": "no",
+                    "ChoiceLocator": "q://QID5/ChoiceNumericEntryValue/4",
+                    "Operator": "EqualTo",
+                    "QuestionIDFromLocator": "QID5",
+                    "LeftOperand": "q://QID5/ChoiceNumericEntryValue/4",
+                    "RightOperand": "100",
+                    "Type": "Expression",
+                    "LogicType": "Question",
+                    "Description": "<span class=\"ConjDesc\">Or</span> <span class=\"QuestionDesc\"></span> <span class=\"LeftOpDesc\">&lt;html&gt;\n&lt;body&gt;\n &lt;audio id=\"3\" src=\"http://groups.inf.ed.ac.uk/cstr3/cvbotinh/SM/RQ4/SystemComparison/test1/wavs/vocoded/CB-EM-02-53.wav\"&gt;&lt;/audio&gt;\n&lt;div&gt;\n    &lt;button onclick=\"document.getElementById('3').play()\"&gt;Play&lt;/button&gt;\n    &lt;button onclick=\"document.getElementById('3').pause()\"&gt;Pause&lt;/button&gt;\n&lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> 100 </span>",
+                    "Conjuction": "Or"
+                  },
+                  "4": {
+                    "QuestionID": "QID5",
+                    "QuestionIsInLoop": "no",
+                    "ChoiceLocator": "q://QID5/ChoiceNumericEntryValue/5",
+                    "Operator": "EqualTo",
+                    "QuestionIDFromLocator": "QID5",
+                    "LeftOperand": "q://QID5/ChoiceNumericEntryValue/5",
+                    "RightOperand": "100",
+                    "Type": "Expression",
+                    "LogicType": "Question",
+                    "Description": "<span class=\"ConjDesc\">Or</span> <span class=\"QuestionDesc\"></span> <span class=\"LeftOpDesc\">&lt;html&gt;\n&lt;body&gt;\n &lt;audio id=\"4\" src=\"http://groups.inf.ed.ac.uk/cstr3/cvbotinh/SM/RQ4/SystemComparison/test1/wavs/SR/CB-EM-02-53.wav\"&gt;&lt;/audio&gt;\n&lt;div&gt;\n    &lt;button onclick=\"document.getElementById('4').play()\"&gt;Play&lt;/button&gt;\n    &lt;button onclick=\"document.getElementById('4').pause()\"&gt;Pause&lt;/button&gt;\n&lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> 100 </span>",
+                    "Conjuction": "Or"
+                  },
+                  "5": {
+                    "QuestionID": "QID5",
+                    "QuestionIsInLoop": "no",
+                    "ChoiceLocator": "q://QID5/ChoiceNumericEntryValue/6",
+                    "Operator": "EqualTo",
+                    "QuestionIDFromLocator": "QID5",
+                    "LeftOperand": "q://QID5/ChoiceNumericEntryValue/6",
+                    "RightOperand": "100",
+                    "Type": "Expression",
+                    "LogicType": "Question",
+                    "Description": "<span class=\"ConjDesc\">Or</span> <span class=\"QuestionDesc\"></span> <span class=\"LeftOpDesc\">Click to write Choice 6</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> 100 </span>",
+                    "Conjuction": "Or"
+                  },
+                  "6": {
+                    "QuestionID": "QID5",
+                    "QuestionIsInLoop": "no",
+                    "ChoiceLocator": "q://QID5/ChoiceNumericEntryValue/7",
+                    "Operator": "EqualTo",
+                    "QuestionIDFromLocator": "QID5",
+                    "LeftOperand": "q://QID5/ChoiceNumericEntryValue/7",
+                    "RightOperand": "100",
+                    "Type": "Expression",
+                    "LogicType": "Question",
+                    "Description": "<span class=\"ConjDesc\">Or</span> <span class=\"QuestionDesc\"></span> <span class=\"LeftOpDesc\">Click to write Choice 7</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> 100 </span>",
+                    "Conjuction": "Or"
+                  },
+                  "7": {
+                    "QuestionID": "QID5",
+                    "QuestionIsInLoop": "no",
+                    "ChoiceLocator": "q://QID5/ChoiceNumericEntryValue/8",
+                    "Operator": "EqualTo",
+                    "QuestionIDFromLocator": "QID5",
+                    "LeftOperand": "q://QID5/ChoiceNumericEntryValue/8",
+                    "RightOperand": "100",
+                    "Type": "Expression",
+                    "LogicType": "Question",
+                    "Description": "<span class=\"ConjDesc\">Or</span> <span class=\"QuestionDesc\"></span> <span class=\"LeftOpDesc\">Click to write Choice 8</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> 100 </span>",
+                    "Conjuction": "Or"
+                  },
+                  "8": {
+                    "QuestionID": "QID5",
+                    "QuestionIsInLoop": "no",
+                    "ChoiceLocator": "q://QID5/ChoiceNumericEntryValue/9",
+                    "Operator": "EqualTo",
+                    "QuestionIDFromLocator": "QID5",
+                    "LeftOperand": "q://QID5/ChoiceNumericEntryValue/9",
+                    "RightOperand": "100",
+                    "Type": "Expression",
+                    "LogicType": "Question",
+                    "Description": "<span class=\"ConjDesc\">Or</span> <span class=\"QuestionDesc\"></span> <span class=\"LeftOpDesc\">Click to write Choice 9</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> 100 </span>",
+                    "Conjuction": "Or"
+                  },
+                  "9": {
+                    "QuestionID": "QID5",
+                    "QuestionIsInLoop": "no",
+                    "ChoiceLocator": "q://QID5/ChoiceNumericEntryValue/10",
+                    "Operator": "EqualTo",
+                    "QuestionIDFromLocator": "QID5",
+                    "LeftOperand": "q://QID5/ChoiceNumericEntryValue/10",
+                    "RightOperand": "100",
+                    "Type": "Expression",
+                    "LogicType": "Question",
+                    "Description": "<span class=\"ConjDesc\">Or</span> <span class=\"QuestionDesc\"></span> <span class=\"LeftOpDesc\">Click to write Choice 10</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> 100 </span>",
+                    "Conjuction": "Or"
+                  },
+                  "10": {
+                    "QuestionID": "QID5",
+                    "QuestionIsInLoop": "no",
+                    "ChoiceLocator": "q://QID5/ChoiceNumericEntryValue/11",
+                    "Operator": "EqualTo",
+                    "QuestionIDFromLocator": "QID5",
+                    "LeftOperand": "q://QID5/ChoiceNumericEntryValue/11",
+                    "RightOperand": "100",
+                    "Type": "Expression",
+                    "LogicType": "Question",
+                    "Description": "<span class=\"ConjDesc\">Or</span> <span class=\"QuestionDesc\"></span> <span class=\"LeftOpDesc\">Click to write Choice 11</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> 100 </span>",
+                    "Conjuction": "Or"
+                  },
+                  "11": {
+                    "QuestionID": "QID5",
+                    "QuestionIsInLoop": "no",
+                    "ChoiceLocator": "q://QID5/ChoiceNumericEntryValue/12",
+                    "Operator": "EqualTo",
+                    "QuestionIDFromLocator": "QID5",
+                    "LeftOperand": "q://QID5/ChoiceNumericEntryValue/12",
+                    "RightOperand": "100",
+                    "Type": "Expression",
+                    "LogicType": "Question",
+                    "Description": "<span class=\"ConjDesc\">Or</span> <span class=\"QuestionDesc\"></span> <span class=\"LeftOpDesc\">Click to write Choice 12</span> <span class=\"OpDesc\">Is Equal to</span> <span class=\"RightOpDesc\"> 100 </span>",
+                    "Conjuction": "Or"
+                  },
+                  "Type": "If"
+                },
+                "Type": "BooleanExpression"
+              },
+              "Message": {
+                "messageID": "MS_5uuuakdI0uGd069",
+                "subMessageID": "VE_CUSTOM_VALIDATION_0",
+                "libraryID": "UR_bat6mqoiSNjp68l",
+                "description": "No 100 Rating"
+              }
+            }
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 13,
+        "NextAnswerId": 6,
+        "Labels": {
+          "1": {
+            "Display": "Bad"
+          },
+          "2": {
+            "Display": "Poor"
+          },
+          "3": {
+            "Display": "Fair"
+          },
+          "4": {
+            "Display": "Good"
+          },
+          "5": {
+            "Display": "Excellent"
+          }
+        },
+        "QuestionID": "QID5"
+      }
+    },
+    {
+      "SurveyID": "SV_82GxylVdVIF3r7v",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID10",
+      "SecondaryAttribute": "How natural is this speech recording? ",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "How natural is this speech recording?&nbsp;\n<audio class=\"qmedia\" controls=\"true\" height=\"40\" preload=\"auto\" width=\"320\"><source src=\"https://edinburghinformatics.eu.qualtrics.com/CP/File.php?F=F_7WFS5oExNkJPgtD\" type=\"audio/wav\" /><embed class=\"qmedia\" flashconsts=\"file=https://edinburghinformatics.eu.qualtrics.com/CP/File.php?F=F_7WFS5oExNkJPgtD&amp;width=320&amp;height=20&amp;type=wav&amp;autostart=false\" height=\"20\" pluginspage=\"http://adobe.com/flashplayer/\" src=\"/WRQualtricsShared/Flash/flvplayer.swf\" type=\"application/x-shockwave-flash\" width=\"320\" wmode=\"transparent\" /></audio>",
+        "QuestionJS": "Qualtrics.SurveyEngine.addOnload(function()\n{\n\t/*Place your JavaScript here to run when the page loads*/\n\njQuery(\"td\").css(\"border-left\",\"2px solid WhiteSmoke\");\n});\n\nQualtrics.SurveyEngine.addOnReady(function()\n{\n\t/*Place your JavaScript here to run when the page is fully displayed*/\n\n});\n\nQualtrics.SurveyEngine.addOnUnload(function()\n{\n\t/*Place your JavaScript here to run when the page is unloaded*/\n\n});",
+        "DefaultChoices": false,
+        "DataExportTag": "Q11",
+        "QuestionType": "Slider",
+        "Selector": "HSLIDER",
+        "DataVisibility": {
+          "Private": false,
+          "Hidden": false
+        },
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText",
+          "CSSliderMin": 1,
+          "CSSliderMax": 5,
+          "GridLines": 4,
+          "SnapToGrid": true,
+          "NumDecimals": "0",
+          "ShowValue": true,
+          "CustomStart": true,
+          "SliderStartPositions": {
+            "1": 0.5
+          },
+          "NotApplicable": false,
+          "CenterLabels": true,
+          "MobileFirst": false
+        },
+        "QuestionDescription": "How natural is this speech recording? ",
+        "Choices": {
+          "1": {
+            "Display": ""
+          }
+        },
+        "ChoiceOrder": [
+          1
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "ON",
+            "ForceResponseType": "ON",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 2,
+        "NextAnswerId": 8,
+        "Labels": {
+          "1": {
+            "Display": "Bad"
+          },
+          "2": {
+            "Display": "Poor"
+          },
+          "3": {
+            "Display": "Fair"
+          },
+          "4": {
+            "Display": "Good"
+          },
+          "5": {
+            "Display": "Excellent"
+          }
+        },
+        "Answers": {
+          "1": {
+            "Display": 1
+          },
+          "2": {
+            "Display": 2
+          },
+          "3": {
+            "Display": 3
+          },
+          "4": {
+            "Display": 4
+          },
+          "5": {
+            "Display": 5
+          }
+        },
+        "QuestionID": "QID10"
+      }
+    },
+    {
+      "SurveyID": "SV_82GxylVdVIF3r7v",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID3",
+      "SecondaryAttribute": "Please transcribe this speech sample.",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Please transcribe this speech sample.",
+        "DefaultChoices": false,
+        "DataExportTag": "Q3",
+        "QuestionType": "TE",
+        "Selector": "SL",
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "QuestionDescription": "Please transcribe this speech sample.",
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "ON",
+            "ForceResponseType": "ON",
+            "Type": "None"
+          }
+        },
+        "GradingData": [],
+        "Language": [],
+        "NextChoiceId": 4,
+        "NextAnswerId": 1,
+        "SearchSource": {
+          "AllowFreeResponse": "false"
+        },
+        "QuestionID": "QID3"
+      }
+    },
+    {
+      "SurveyID": "SV_82GxylVdVIF3r7v",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID1",
+      "SecondaryAttribute": "which sample sounds the most natural?",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "which sample sounds the most natural?",
+        "DataExportTag": "Q1",
+        "QuestionType": "MC",
+        "Selector": "SAVR",
+        "SubSelector": "TX",
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "QuestionDescription": "which sample sounds the most natural?",
+        "Choices": {
+          "1": {
+            "Display": "sample 1"
+          },
+          "2": {
+            "Display": "sample 2"
+          }
+        },
+        "ChoiceOrder": [
+          1,
+          2
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "ON",
+            "ForceResponseType": "ON",
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "NextChoiceId": 3,
+        "NextAnswerId": 1,
+        "QuestionID": "QID1",
+        "Randomization": {
+          "Advanced": null,
+          "Type": "All",
+          "TotalRandSubset": ""
+        }
+      }
+    },
+    {
+      "SurveyID": "SV_82GxylVdVIF3r7v",
+      "Element": "SQ",
+      "PrimaryAttribute": "QID4",
+      "SecondaryAttribute": "Which sample sounds the most natural?",
+      "TertiaryAttribute": null,
+      "Payload": {
+        "QuestionText": "Which sample sounds the most natural?",
+        "DataExportTag": "Q4",
+        "QuestionType": "MC",
+        "Selector": "SAVR",
+        "SubSelector": "TX",
+        "Configuration": {
+          "QuestionDescriptionOption": "UseText"
+        },
+        "QuestionDescription": "Which sample sounds the most natural?",
+        "Choices": {
+          "1": {
+            "Display": "sample 1"
+          },
+          "2": {
+            "Display": "sample2"
+          },
+          "3": {
+            "Display": "sample3"
+          }
+        },
+        "ChoiceOrder": [
+          1,
+          2,
+          3
+        ],
+        "Validation": {
+          "Settings": {
+            "ForceResponse": "ON",
+            "ForceResponseType": "ON",
+            "Type": "None"
+          }
+        },
+        "Language": [],
+        "NextChoiceId": 4,
+        "NextAnswerId": 1,
+        "QuestionID": "QID4",
+        "Randomization": {
+          "Advanced": null,
+          "Type": "All",
+          "TotalRandSubset": ""
+        }
+      }
+    }
+  ]
+}
