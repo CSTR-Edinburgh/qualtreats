@@ -11,6 +11,7 @@ import config
 
 # new template files can be created in Qualtrics by creating a
 # question with your specifications and exporting the survey file
+# json_filename = "combined-template.json"
 json_filename = "combined-template.json"
 save_as = "output-survey.qsf"
 # audio templates should not be changed
@@ -19,7 +20,7 @@ play_button = "play_button.html"
 
 # load JSON template from file
 def get_basis_json():
-    with open(json_filename) as json_file:
+    with open(json_filename, encoding='utf8') as json_file:
         return json.load(json_file)
 
 # standard audio player for all question types except MUSHRA
@@ -107,7 +108,9 @@ def mushra_q(new_q, urls, qid):
     new_q['Payload']['Choices'] = {}
     for i, url in enumerate(urls):
         choice = copy.deepcopy(choice_template)
-        choice['Display'] = get_play_button(url, str(i)) # add audio player as choice
+        audio_id = (qid-1)*len(urls)+i+qid # unique int id for every sample
+        # print(f"q {qid} : test {i+1} : {audio_id})
+        choice['Display'] = get_play_button(url, audio_id) # add audio player as choice
         new_q['Payload']['Choices'][f'{i+1}'] = choice
         # set the choice logic to require that 1+ audio samples are rated == 100
         (new_q['Payload']
@@ -226,7 +229,7 @@ def main():
                     'trs': f"{config.trs_question_text}\
                              {get_player_html('$urls')}",
                     'mushra': f"{config.mushra_question_text}\
-                                {get_play_button('$ref_url', 'ref')}",
+                                {get_play_button('$ref_url', '$ref_id')}",
                     'mos': f"{config.mos_question_text}\
                              {get_player_html('$urls')}" }
 
@@ -247,13 +250,16 @@ def main():
     mushra_counter = 0
 
     for arg in args:
-        for url_set in url_dict[arg]['urls']: # for each url set for that question type
+        for n, url_set in enumerate(url_dict[arg]['urls']): # for each url set for that question type
             # get MUSHRA reference url if the current flag == -mushra
             ref_url = url_dict['mushra']['extra'][mushra_counter] if arg == 'mushra' else None
             # get MC sentence if the current flag == -mc
             sentence = mc_sentences[url_dict['mc']['extra'][mc_counter]] if arg == 'mc' else None
+            mushra_ref_id = n*(len(url_set)+1) # unique id for every ref sample
+            # print(f"reference : {mushra_ref_id}")
             # embed required url or sentence into the question text
             text = Template(q_text_dict[arg]).substitute(ref_url=ref_url,
+                                                         ref_id=mushra_ref_id,
                                                          urls=url_set,
                                                          sentence=sentence
                                                          )
