@@ -109,7 +109,7 @@ def mushra_q(new_q, urls, qid):
     for i, url in enumerate(urls):
         choice = copy.deepcopy(choice_template)
         audio_id = (qid-1)*len(urls)+i+qid # unique int id for every sample
-        # print(f"q {qid} : test {i+1} : {audio_id})
+        # print(f"q: {qid},   sample: {i+1},   ID: {audio_id}")
         choice['Display'] = get_play_button(url, audio_id) # add audio player as choice
         new_q['Payload']['Choices'][f'{i+1}'] = choice
         # set the choice logic to require that 1+ audio samples are rated == 100
@@ -256,7 +256,7 @@ def main():
             # get MC sentence if the current flag == -mc
             sentence = mc_sentences[url_dict['mc']['extra'][mc_counter]] if arg == 'mc' else None
             mushra_ref_id = n*(len(url_set)+1) # unique id for every ref sample
-            # print(f"reference : {mushra_ref_id}")
+            # print(f"q: {n+1},   sample: reference,   ID: {mushra_ref_id}")
             # embed required url or sentence into the question text
             text = Template(q_text_dict[arg]).substitute(ref_url=ref_url,
                                                          ref_id=mushra_ref_id,
