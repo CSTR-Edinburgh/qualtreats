@@ -99,9 +99,9 @@ Flags:
 - `-mc` = multiple choice
 - `-trs` = audio transcription
 - `-mushra` = MUSHRA
-- `mos` = MOS
+- `-mos` = MOS
 
-Questions will be added to the output test in the order you supply the flags.
+Questions will be added to the output test for each flag supplied, following the order shown above.
 
 E.g. to create a test with MUSHRA then audio transcription questions, use the command:
 
