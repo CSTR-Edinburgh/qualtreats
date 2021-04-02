@@ -50,7 +50,7 @@ This tool only uses packages from the Python standard library.
 
 Clone the <Name> GitHub repository with the command:
 
-`git clone https://github.com/jacobjwebber/qualtrics-listening-test-maker.git`
+`git clone https://github.com/CSTR-Edinburgh/qualtreats.git`
 
 ## Configuration
 
