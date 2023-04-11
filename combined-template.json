@@ -60,8 +60,7 @@
                 {
                     "Type": "Trash",
                     "Description": "Trash / Unused Questions",
-                    "ID": "BL_b9JrFiAUwvf53RH",
-                    "BlockElements": []
+                    "ID": "BL_b9JrFiAUwvf53RH"
                 }
             ]
         },
@@ -86,13 +85,16 @@
                 "Type": "Root"
             }
         },
-        {
+            {
             "SurveyID": "SV_82GxylVdVIF3r7v",
-            "Element": "RS",
-            "PrimaryAttribute": "RS_6MeAvL2aPM8PFI1",
+            "Element": "PL",
+            "PrimaryAttribute": "Preview Link",
             "SecondaryAttribute": null,
             "TertiaryAttribute": null,
-            "Payload": null
+            "Payload": {
+                "PreviewType": "Brand",
+                "PreviewID": "fc706c49-511d-458d-aefd-eaa37bbe3e95"
+            }
         },
         {
             "SurveyID": "SV_82GxylVdVIF3r7v",
@@ -125,6 +127,7 @@
                     "overrides": null
                 },
                 "NewScoring": 1,
+                "SurveyMetaDescription": "The most powerful, simple and trusted way to gather experience data. Start your journey to experience management and try a free account today.",
                 "SurveyName": "Combined template+MOS"
             }
         },
@@ -165,6 +168,14 @@
                 "MobileCompatible": true,
                 "ID": "Survey Statistics"
             }
+        },
+        {
+            "SurveyID": "SV_82GxylVdVIF3r7v",
+            "Element": "RS",
+            "PrimaryAttribute": "RS_6MeAvL2aPM8PFI1",
+            "SecondaryAttribute": null,
+            "TertiaryAttribute": null,
+            "Payload": null
         },
         {
             "SurveyID": "SV_82GxylVdVIF3r7v",

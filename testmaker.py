@@ -196,12 +196,14 @@ def main():
 
     # get question template blocks from elements JSON
     # element order is survey-dependent- check if you're using a new template
-    basis_question_dict = {'ab': elements[12],
-                           'mc': elements[8],
-                           'trs':elements[11],
-                           'abc': elements[13],
-                           'mushra': elements[9],
-                           'mos':elements[10]}
+
+
+    basis_question_dict = {'ab': elements[13],
+                           'mc': elements[9],
+                           'trs':elements[12],
+                           'abc': elements[14],
+                           'mushra': elements[10],
+                           'mos':elements[11]}
 
     # update multiple choice answer text in template to save computation
     (basis_question_dict['mc']['Payload']['Choices']
@@ -217,9 +219,9 @@ def main():
     # get basic survey components from elements JSON
     basis_blocks = elements[0]
     basis_flow = elements[1]
-    rs = elements[2]
-    basis_survey_count = elements[7]
+    basis_survey_count = elements[8]
 
+    rs = elements[7]
     # store question text set in config.py, add an audio player where required
     q_text_dict = { 'ab': config.ab_question_text,
                     'abc': config.ab_question_text,
@@ -291,6 +293,7 @@ def main():
     flow['Payload']['Properties']['Count'] = survey_length
     survey_count = basis_survey_count
     survey_count['SecondaryAttribute'] = str(survey_length)
+
     # add all the created elements together
     elements = [blocks, flow] + elements[2:7]  + questions + [rs]
 
@@ -301,7 +304,8 @@ def main():
 
     print(f'Generated survey with {survey_length} questions')
     with open(save_as, 'w+') as outfile:
-        json.dump(out_json, outfile, indent=4)
+        # json.dump(out_json, outfile)
+        json.dump(out_json, outfile, indent=4)#, encoding='utf8')
 
 if __name__ == "__main__":
     main()
